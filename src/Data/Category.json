@@ -1,0 +1,23 @@
+[
+     {
+          "id": 1,
+          "name": "Hoodies",
+          "image": "/images/category/hoodie.jpg"
+     },
+     {
+          "id": 2,
+          "name": "Shoes",
+          "image": "/images/category/shoe.jpg"
+     },
+     {
+          "id": 3,
+          "name": "Jackets",
+          "image": "/images/category/jacket.jpg"
+     },
+     {
+          "id": 4,
+          "name": "SweatShirts",
+          "image": "/images/category/sweatshirt.jpg"
+     }
+
+]

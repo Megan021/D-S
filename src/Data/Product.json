@@ -1,0 +1,89 @@
+[
+     {
+          "id": 1,
+          "name": "Levi's® Skateboarding™ 501® Original Fit Men's Jeans",
+          "image": ["/images/product/product1.webp", "/images/product/product55.webp"],
+          "price": 9000,
+          "oldprice": 7000,
+          "sku": "asd123",
+          "size": ["S","M","L"],
+          "color": ["black", "white", "blue"],
+          "tag": "new"
+     },
+     {
+          "id": 2,
+          "name": "559™ Relaxed Straight Fit Men's Jeans",
+          "image": ["/images/product/product2.webp", "/images/product/product55.webp"],
+          "price": 4800,
+          "sku": "zxc123",
+          "size": ["S","M","L"],
+          "color": ["black", "white", "blue"],
+          "tag": "new"
+     },
+     {
+          "id": 3,
+          "name": "Levi's® 500® Relaxed Icon Denim Jacket for Men",
+          "image": ["/images/product/product3.avif", "/images/product/product55.webp"],
+          "price": 8900,
+          "oldprice": 6500,
+          "sku": "asdzxc",
+          "size": ["S","M","L"],
+          "color": ["black", "white", "blue"],
+          "tag": "new",
+          "discount": "-20%"
+     },
+     {
+          "id": 4,
+          "name": "GapHeritage Logo Hoodie",
+          "image": ["/images/product/product4.avif", "/images/product/product55.webp"],
+          "price": 4400,
+          "sku": "asd456",
+          "size": ["S","M","L"],
+          "color": ["black", "white", "blue"],
+          "tag": "new"
+     },
+     {
+          "id": 5,
+          "name": "Relaxed Fit Trucker Jacket",
+          "image": ["/images/product/product5.webp", "/images/product/product55.webp"],
+          "price": 7000,
+          "sku": "asd456",
+          "size": ["S","M","L"],
+          "color": ["black", "white", "blue"],
+          "tag": "best seller"
+     },
+     {
+          "id": 6,
+          "name": "Rowan Jeans Jacket and Hoodie for Men",
+          "image": ["/images/product/product6.webp", "/images/product/product66.webp"],
+          "price": 8999,
+          "oldprice": 7999,
+          "sku": "asd456",
+          "size": ["S","M","L"],
+          "color": ["black", "white", "blue"],
+          "tag": "best seller",
+          "discount": "-20%"
+     },
+     {
+          "id": 7,
+          "name": "501® Original Fit Men's Jeans",
+          "image": ["/images/product/product7.webp", "/images/product/product77.webp"],
+          "price": 4400,
+          "sku": "asd456",
+          "size": ["S","M","L"],
+          "color": ["black", "white", "blue"],
+          "tag": "best seller"
+     },
+     {
+          "id": 8,
+          "name": "541™ Athletic Taper Comfort Jeans for Men",
+          "image": ["/images/product/product8.webp", "/images/product/product88.webp"],
+          "price": 3500,
+          "oldprice": 3000,
+          "sku": "asd456",
+          "size": ["S","M","L"],
+          "color": ["black", "white", "blue"],
+          "tag": "best seller",
+          "discount": "-20%"
+     }
+]
