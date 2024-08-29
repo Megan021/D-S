@@ -33,9 +33,9 @@ const ProductDetail = () => {
 
   return (
     <>
-      <div className="container flex py-20 pb-16 gap-20">
-        <div className="flex w-[60%] h-[40rem] gap-5">
-          <div className="flex flex-col mr-4">
+      <div className="container md:flex py-20 pb-16 gap-20 px-4 md:px-0">
+        <div className="md:flex lg:flex-row flex flex-col-reverse md:w-[60%] md:h-[40rem] gap-5">
+          <div className="flex lg:flex-col mr-4 gap-5">
             {/* Assuming product.images is an array of image URLs */}
             {product?.image &&
               product?.image.map((img, index) => (
@@ -59,7 +59,7 @@ const ProductDetail = () => {
           </div>
         </div>
 
-        <div className="w-[40%]">
+        <div className="md:w-[40%] mt-12 md:mt-0">
           <h3 className="text-sm">Sku: {product?.sku}</h3>
           <h2 className="text-3xl font-medium py-3">{product?.name}</h2>
           <div className="flex gap-4 items-center border-b pb-4 mb-2">
