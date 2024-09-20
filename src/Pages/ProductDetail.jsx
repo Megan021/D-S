@@ -1,14 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Link, useParams } from "react-router-dom";
 import Product from "../Data/Product.json";
 import { GoChevronDown } from "react-icons/go";
 import { IoIosHeartEmpty } from "react-icons/io";
 import { AiOutlinePlus } from "react-icons/ai";
+import { CartContext } from "../Context/CartContext";
 import Review from "../Components/ForProductDetail/Review";
 import Recomended from "../Components/ForProductDetail/Recomended";
 
 const ProductDetail = () => {
   const { id } = useParams(); // Get the id parameter from the URL
+  const { addToCart } = useContext(CartContext); // Access addToCart from CartContext
   const product = Product.find((item) => item.id === parseInt(id)); // Find the product with the matching id
 
   // Initialize mainImage with the first image in the array or fallback to the single image property
@@ -17,6 +19,11 @@ const ProductDetail = () => {
       ? product.image[0] // Use the first image from the images array
       : product?.image // Fallback to the main image property
   );
+
+    // State for selected options
+    const [selectedColor, setSelectedColor] = useState(""); // Color state
+    const [selectedSize, setSelectedSize] = useState(""); // Size state
+    const [quantity, setQuantity] = useState(1); // Quantity state
 
   if (!product) {
     return (
@@ -30,6 +37,26 @@ const ProductDetail = () => {
       </div>
     );
   }
+
+    // Handle adding to cart
+    const handleAddToCart = () => {
+      if (!selectedColor || !selectedSize) {
+        alert("Please select a color and size.");
+        return;
+      }
+  
+      const cartItem = {
+        id: product.id,
+        name: product.name,
+        price: product.price,
+        color: selectedColor,
+        size: selectedSize,
+        quantity: quantity,
+        image: mainImage,
+      };
+  
+      addToCart(cartItem);
+    };
 
   return (
     <>
@@ -75,26 +102,44 @@ const ProductDetail = () => {
 
           <div className="text-right p-1">
             <button className="text-xl">
-              <IoIosHeartEmpty className="hover:text-[red] overflow-hidden" />
+              <IoIosHeartEmpty className="hover:text-[red] fill-red-500 overflow-hidden" />
             </button>
           </div>
 
           <div className="mb-8">
             <h3 className="uppercase text-sm pb-4 font-semibold">Color</h3>
             <ul className="flex gap-7">
-              <li className="rounded-full p-5 bg-black ring-2 ring-offset-2 ring-black cursor-pointer"></li>
-              <li className="rounded-full p-5 bg-[maroon] hover:ring-2 ring-offset-2 ring-black cursor-pointer"></li>
-              <li className="rounded-full p-5 bg-[grey] hover:ring-2 ring-offset-2 ring-black cursor-pointer"></li>
+            <li
+                className={`rounded-full p-5 bg-black hover:ring-2 ring-offset-2 ring-black cursor-pointer ${
+                  selectedColor === "black" && "ring-2 ring-offset-2"
+                }`}
+                onClick={() => setSelectedColor("black")}
+              ></li>
+              <li
+                className={`rounded-full p-5 bg-[maroon] hover:ring-2 ring-offset-2 ring-black cursor-pointer ${
+                  selectedColor === "maroon" && "ring-2 ring-offset-2"
+                }`}
+                onClick={() => setSelectedColor("maroon")}
+              ></li>
+              <li
+                className={`rounded-full p-5 bg-[grey] hover:ring-2 ring-offset-2 ring-black cursor-pointer ${
+                  selectedColor === "grey" && "ring-2 ring-offset-2"
+                }`}
+                onClick={() => setSelectedColor("grey")}
+              ></li>
             </ul>
           </div>
 
           <div className="mb-12">
             <h3 className="uppercase text-sm pb-2 font-semibold">Size</h3>
             <ul className="flex gap-2">
-              {product.size.map((size, index) => (
+            {product.size.map((size, index) => (
                 <li
                   key={index}
-                  className="border border-gray-400 p-2 px-4 text-sm hover:border-black cursor-pointer"
+                  className={`border border-gray-400 p-2 px-4 text-sm hover:border-black cursor-pointer ${
+                    selectedSize === size && "border text-white bg-[black]"
+                  }`}
+                  onClick={() => setSelectedSize(size)}
                 >
                   {size}
                 </li>
@@ -106,7 +151,7 @@ const ProductDetail = () => {
             <button className="p-2 border border-black w-24 items-center flex justify-between">
               Qty: 1 <GoChevronDown />
             </button>
-            <button className="p-2 border border-black bg-black text-white font-medium w-full capitalize">
+            <button onClick={handleAddToCart} className="p-2 border border-black bg-black text-white font-medium w-full capitalize">
               add to cart
             </button>
           </div>

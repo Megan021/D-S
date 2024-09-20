@@ -5,8 +5,8 @@ import { BsFillFilterCircleFill } from "react-icons/bs";
 const Filter = () => {
   return (
     <>
-     <div className='py-20 flex justify-between'>
-          <div className='flex items-center gap-3'>
+     <div className='py-20 md:flex justify-between'>
+          <div className='flex items-center gap-3 mb-5 md:mb-0'>
                <h2 className='font-medium text-xl '>Show: </h2>
                <button className='border p-px px-2 rounded border-gray-400  text-base flex gap-1 items-center'>8<IoIosArrowDown /></button>
           </div>

@@ -2,6 +2,7 @@ import React from 'react'
 import { TiSocialFacebook,TiSocialTwitter } from "react-icons/ti";
 import { GoArrowUpRight } from "react-icons/go";
 import { FaInstagram } from "react-icons/fa";
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
@@ -40,7 +41,8 @@ const Footer = () => {
                     <li>Privacy Policy</li>
                     <li>Terms & Condition</li>
                     <li>FAQ's</li>
-                    <li>Wishlist</li>
+                    <Link to="/wishlist"><li>Wishlist</li></Link>
+                    <Link to="/register"><li>Register</li></Link>
                </ul>
           </div>
 

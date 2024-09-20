@@ -1,12 +1,16 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { FiShoppingBag, FiUser, FiHeart } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import { HiOutlineMenuAlt3 } from "react-icons/hi";
 import { motion, AnimatePresence } from 'framer-motion';
 import { RiCloseLargeLine } from "react-icons/ri";
+import { CartContext } from "../Context/CartContext";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+    // Get cart count from CartContext
+    const { cartCount } = useContext(CartContext);
 
   // Toggle menu open/close
   const toggleMenu = () => {
@@ -42,21 +46,29 @@ const Navbar = () => {
 
           <div>
             <ul className="flex gap-5 text-xl">
-              <Link to="/">
+              <Link to="/wishlist">
                 <li>
                   <FiHeart />
                 </li>
               </Link>
-              <Link to="/">
-                <li>
+
+              <Link to="/cart">
+                <li className="relative">
                   <FiShoppingBag />
+                  {cartCount > 0 && (
+                    <span className="absolute top-[-8px] right-[-8px] bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
+                      {cartCount}
+                    </span>
+                  )}
                 </li>
               </Link>
-              <Link to="/">
+
+              <Link to="/login">
                 <li>
                   <FiUser />
                 </li>
               </Link>
+
               <button
                 to="/"
                 onClick={toggleMenu}

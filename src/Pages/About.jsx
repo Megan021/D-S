@@ -8,19 +8,19 @@ const About = () => {
   return (
     <>
           <AboutBanner />
-          <div className='container flex items-center py-20 gap-24'>
+          <div className='container flex md:flex-row flex-col-reverse items-center py-20 gap-12 md:gap-24'>
                <div className='flex-1'>
                     <img src="/images/about/about1.jpeg" alt="" className='' />
                </div>
 
-               <div className='flex-1'>
+               <div className='flex-1 px-4 md:px-0'>
                     <h2 className='font-semibold text-5xl pb-8 leading-[4rem]'>Unveiling Your Unique Fashion Journey</h2>
                     <p className='text-lg'>Welcome to Mixtas Store, where fashion meets individuality, and style is more than just clothing – it's a statement. Our passion for fashion drives us to curate a collection that celebrates diversity, embraces trends, and empowers you to express yourself through clothing.</p>
                </div>
           </div>
 
-          <div className='container flex items-center gap-24'>
-               <div className='flex-1 space-y-8'>
+          <div className='container md:flex items-center gap-24'>
+               <div className='flex-1 space-y-8 px-4 md:px-0 mb-12 md:mb-0'>
                     <div className='flex gap-6 '>
                          <div>
                               <i><LiaShippingFastSolid className='text-5xl rounded-full bg-black text-white p-3' /></i>
@@ -57,9 +57,9 @@ const About = () => {
 
           <div className='container my-20 text-center border border-gray-300 rounded-md p-6 py-20 shadow-md'>
                <h2 className='text-4xl font-medium pb-4'>Quality is our priority</h2>
-               <p className='w-[50%] mx-auto mb-16'>Our talented stylists have put together outfits that are perfect for the season. They've variety of ways to inspire your next fashion-forward look.</p>
+               <p className='md:w-[50%] mx-auto mb-16'>Our talented stylists have put together outfits that are perfect for the season. They've variety of ways to inspire your next fashion-forward look.</p>
 
-               <div className='flex gap-5'>
+               <div className='flex md:flex-row flex-col gap-12 md:gap-5'>
                     <div className='flex-1'>
                          <img src="/images/about/highquality.png" alt="" className='size-16 mb-4 mx-auto' />
                          <h3 className='text-2xl font-medium pb-4'>High-Quality Materials</h3>
