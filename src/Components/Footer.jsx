@@ -15,7 +15,9 @@ const Footer = () => {
                     <li>Email: <span className='font-medium'>info@example.com</span></li>
                     <li>Phone: <span className='font-medium'>9801234567</span></li>
                </ul>
+               <a href="https://maps.app.goo.gl/7GfeP2xfnVSjELNQ7" target='blank'>
                <button className='flex items-center gap-2 border-b pb-1 hover:text-orange-500 hover:border-orange-500 duration-300'>Get direction<GoArrowUpRight /></button>
+               </a>
 
                <ul className='flex gap-3 mt-6'>
                     <li><FaInstagram className='text-4xl rounded-full border border-white p-2' /></li>
@@ -27,11 +29,11 @@ const Footer = () => {
           <div className='mb-16 md:mb-0'> 
                <h3 className='text-xl font-medium pb-5'>Quick Links</h3>
                <ul className='leading-8'>
-                    <li>Home</li>
-                    <li>Shop</li>
-                    <li>About</li>
-                    <li>Blog</li>
-                    <li>Contact</li>
+                    <Link to="/"><li>Home</li></Link>
+                    <Link to="/shop"><li>Shop</li></Link>
+                    <Link to="/about"><li>About</li></Link>
+                    <Link to="/"><li>Blog</li></Link>
+                    <Link to="/contact"><li>Contact</li></Link>
                </ul>
           </div>
 
@@ -40,7 +42,7 @@ const Footer = () => {
                <ul className='leading-8'>
                     <li>Privacy Policy</li>
                     <li>Terms & Condition</li>
-                    <li>FAQ's</li>
+                    <Link to="/faq"><li>FAQ's</li></Link>
                     <Link to="/wishlist"><li>Wishlist</li></Link>
                     <Link to="/register"><li>Register</li></Link>
                </ul>

@@ -1,5 +1,6 @@
 import React from "react";
 import Product from "../../Data/Product.json";
+import { Link } from "react-router-dom";
 
 const BestSeller = () => {
   const bestProduct = Product.filter(
@@ -19,6 +20,7 @@ const BestSeller = () => {
         </div>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-5">
           {bestProduct.map((product, index) => (
+            <Link to={`/product-detail/${product?.id}`}>
             <div key={index}>
               <img
                 src={Array.isArray(product.image) ? product.image[0] : product.image}
@@ -39,6 +41,7 @@ const BestSeller = () => {
                 </div>
               </div>
             </div>
+            </Link>
           ))}
         </div>
       </div>

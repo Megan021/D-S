@@ -5,12 +5,14 @@ import { GoChevronDown } from "react-icons/go";
 import { IoIosHeartEmpty } from "react-icons/io";
 import { AiOutlinePlus } from "react-icons/ai";
 import { CartContext } from "../Context/CartContext";
+import { WishlistContext } from "../Context/WishlistContext";
 import Review from "../Components/ForProductDetail/Review";
 import Recomended from "../Components/ForProductDetail/Recomended";
 
 const ProductDetail = () => {
   const { id } = useParams(); // Get the id parameter from the URL
   const { addToCart } = useContext(CartContext); // Access addToCart from CartContext
+  const { addToWishlist } = useContext(WishlistContext); // Access addToWishlist from WishlistContext
   const product = Product.find((item) => item.id === parseInt(id)); // Find the product with the matching id
 
   // Initialize mainImage with the first image in the array or fallback to the single image property
@@ -54,9 +56,22 @@ const ProductDetail = () => {
         quantity: quantity,
         image: mainImage,
       };
-  
+      
       addToCart(cartItem);
     };
+    
+    // Handle adding to wishlist
+    const handleAddToWishlist = () => {
+      const wishlistItem = {
+        id: product.id,
+        name: product.name,
+        price: product.price,
+        image: mainImage,
+        quantity: quantity,
+    };
+    
+    addToWishlist(wishlistItem); // Add the item to the wishlist
+  };
 
   return (
     <>
@@ -101,7 +116,7 @@ const ProductDetail = () => {
           </div>
 
           <div className="text-right p-1">
-            <button className="text-xl">
+            <button onClick={handleAddToWishlist} className="text-xl">
               <IoIosHeartEmpty className="hover:text-[red] fill-red-500 overflow-hidden" />
             </button>
           </div>

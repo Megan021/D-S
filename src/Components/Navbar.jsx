@@ -5,12 +5,14 @@ import { HiOutlineMenuAlt3 } from "react-icons/hi";
 import { motion, AnimatePresence } from 'framer-motion';
 import { RiCloseLargeLine } from "react-icons/ri";
 import { CartContext } from "../Context/CartContext";
+import { WishlistContext } from "../Context/WishlistContext";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     // Get cart count from CartContext
     const { cartCount } = useContext(CartContext);
+    const {wishlistCount} = useContext(WishlistContext);
 
   // Toggle menu open/close
   const toggleMenu = () => {
@@ -47,8 +49,13 @@ const Navbar = () => {
           <div>
             <ul className="flex gap-5 text-xl">
               <Link to="/wishlist">
-                <li>
+                <li className="relative">
                   <FiHeart />
+                  {wishlistCount > 0 && (
+                    <span className="absolute top-[-8px] right-[-8px] bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
+                      {wishlistCount}
+                    </span>
+                  )}
                 </li>
               </Link>
 

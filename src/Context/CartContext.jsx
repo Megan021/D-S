@@ -30,14 +30,12 @@ export const CartProvider = ({ children }) => {
     };
 
    // Update the quantity of an item in the cart
-  const updateCartItemQuantity = (itemId, newQuantity) => {
-    setCartItems((prevItems) => {
-      const updatedCart = prevItems.map((item) =>
-        item.id === itemId ? { ...item, quantity: newQuantity } : item
-      );
-      localStorage.setItem("cartItems", JSON.stringify(updatedCart)); // Save to localStorage
-      return updatedCart;
-    });
+   const updateCartItemQuantity = (id, newQuantity) => {
+    setCartItems((prevItems) =>
+      prevItems.map((item) =>
+        item.id === id ? { ...item, quantity: newQuantity } : item
+      )
+    );
   };
 
   // Calculate total quantity of items in the cart
