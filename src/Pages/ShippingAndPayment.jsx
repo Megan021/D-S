@@ -22,8 +22,8 @@ const ShippingAndPayment = () => {
 
   return (
     <>
-      <div className="container mt-14 gap-14 flex">
-        <div className="w-[60%]">
+      <div className="container mt-14 gap-14 md:flex px-4 md:px-0">
+        <div className="md:w-[60%]">
           <ShippingComp />
           <div className="mt-8">
             <h2 className="font-semibold text-xl mb-5">Payment Info</h2>

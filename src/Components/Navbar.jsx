@@ -2,17 +2,22 @@ import React, { useContext, useState } from "react";
 import { FiShoppingBag, FiUser, FiHeart } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import { HiOutlineMenuAlt3 } from "react-icons/hi";
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence } from "framer-motion";
 import { RiCloseLargeLine } from "react-icons/ri";
 import { CartContext } from "../Context/CartContext";
 import { WishlistContext } from "../Context/WishlistContext";
+import { TfiHome } from "react-icons/tfi";
+import { PiStorefrontLight } from "react-icons/pi";
+import { IoInformationCircleOutline } from "react-icons/io5";
+import { IoCallOutline } from "react-icons/io5";
+import MegaMenu from "./ForMegaMenu/MegaMenu";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-    // Get cart count from CartContext
-    const { cartCount } = useContext(CartContext);
-    const {wishlistCount} = useContext(WishlistContext);
+  // Get cart count from CartContext
+  const { cartCount } = useContext(CartContext);
+  const { wishlistCount } = useContext(WishlistContext);
 
   // Toggle menu open/close
   const toggleMenu = () => {
@@ -30,20 +35,7 @@ const Navbar = () => {
           </div>
 
           <div className="hidden md:block">
-            <ul className="flex gap-8 font-medium">
-              <Link to="/">
-                <li>Home</li>
-              </Link>
-              <Link to="/shop">
-                <li>Shop</li>
-              </Link>
-              <Link to="/about">
-                <li>About</li>
-              </Link>
-              <Link to="/contact">
-                <li>Contact</li>
-              </Link>
-            </ul>
+            <MegaMenu />
           </div>
 
           <div>
@@ -70,11 +62,25 @@ const Navbar = () => {
                 </li>
               </Link>
 
-              <Link to="/login">
                 <li>
-                  <FiUser />
+                  <div className="relative group">
+                    <FiUser />
+                    <ul className="z-10 group-hover:block hidden absolute right-0 text-gray-700 pt-2 rounded shadow w-auto text-base">
+                    <Link to="/login"><li className="rounded-t bg-gray-200 hover:bg-gray-300 p-2 px-4 block whitespace-nowrap cursor-pointer">
+                        Login
+                      </li>
+                      </Link>
+                      <Link to="/register">
+                      <li className="bg-gray-200 hover:bg-gray-300 p-2 px-4 block whitespace-nowrap cursor-pointer">
+                        Register
+                      </li>
+                      </Link>
+                      <li className="bg-gray-200 hover:bg-gray-300 p-2 px-4 block whitespace-nowrap cursor-pointer">
+                        My Account
+                      </li>
+                    </ul>
+                  </div>
                 </li>
-              </Link>
 
               <button
                 to="/"
@@ -86,37 +92,37 @@ const Navbar = () => {
                 </li>
               </button>
               <AnimatePresence>
-              {isMenuOpen && (
-                <motion.div
-                  initial={{ x: "100%" }}
-                  animate={{ x: 0 }}
-                  exit={{ x: "100%" }}
-                  transition={{ type: "tween", duration: 0.2 }}
-                  className="fixed top-0 right-0 w-full h-full bg-white z-50"
-                >
-                  <div className="flex justify-between items-center p-5 border-b">
-                    <h2 className="text-2xl font-bold">D&S</h2>
-                    {/* Close menu button */}
-                    <button onClick={toggleMenu} className="text-xl">
-                      <RiCloseLargeLine />
-                    </button>
-                  </div>
-                  <ul className="p-5">
-                    <Link to="/" onClick={toggleMenu}>
-                      <li className="py-2">Home</li>
-                    </Link>
-                    <Link to="/shop" onClick={toggleMenu}>
-                      <li className="py-2">Shop</li>
-                    </Link>
-                    <Link to="/about" onClick={toggleMenu}>
-                      <li className="py-2">About</li>
-                    </Link>
-                    <Link to="/contact" onClick={toggleMenu}>
-                      <li className="py-2">Contact</li>
-                    </Link>
-                  </ul>
-                </motion.div>
-              )}
+                {isMenuOpen && (
+                  <motion.div
+                    initial={{ x: "100%" }}
+                    animate={{ x: 0 }}
+                    exit={{ x: "100%" }}
+                    transition={{ type: "tween", duration: 0.2 }}
+                    className="fixed top-0 right-0 w-full h-full bg-white z-50"
+                  >
+                    <div className="flex justify-between items-center p-5 border-b">
+                      <h2 className="text-2xl font-bold">D&S</h2>
+                      {/* Close menu button */}
+                      <button onClick={toggleMenu} className="text-xl">
+                        <RiCloseLargeLine />
+                      </button>
+                    </div>
+                    <ul className="p-6 leading-8">
+                      <Link to="/" onClick={toggleMenu}>
+                        <li className="py-2 flex items-center gap-2"><TfiHome />Home</li>
+                      </Link>
+                      <Link to="/shop" onClick={toggleMenu}>
+                        <li className="py-2 flex items-center gap-2"><PiStorefrontLight />Shop</li>
+                      </Link>
+                      <Link to="/about" onClick={toggleMenu}>
+                        <li className="py-2 flex items-center gap-2"><IoInformationCircleOutline />About</li>
+                      </Link>
+                      <Link to="/contact" onClick={toggleMenu}>
+                        <li className="py-2 flex items-center gap-2"><IoCallOutline />Contact</li>
+                      </Link>
+                    </ul>
+                  </motion.div>
+                )}
               </AnimatePresence>
             </ul>
           </div>

@@ -16,7 +16,7 @@ const Wishlist = () => {
         {wishlist.length === 0 ? (
           // If wishlist is empty, display a message and "Back to Shopping" button
           <div className="text-center my-10">
-            <img src="/images/wishlist/emptywishlist.webp" alt="empty wishlist" className='mx-auto w-80' />
+            <img src="/images/wishlist/emptywishlist.webp" alt="empty wishlist" className='mx-auto w-52 md:w-80' />
             <h2 className="text-2xl font-semibold mt-4">Your Wishlist is Empty</h2>
             <p className="mb-7 mt-2">You haven't added any products to your wishlist yet.</p>
             <Link 

@@ -40,19 +40,18 @@ const Footer = () => {
           <div className='mb-16 md:mb-0'> 
                <h3 className='text-xl font-medium pb-5'>Help</h3>
                <ul className='leading-8'>
-                    <li>Privacy Policy</li>
-                    <li>Terms & Condition</li>
+                    <Link to="/policy"><li>Policy</li></Link>
                     <Link to="/faq"><li>FAQ's</li></Link>
                     <Link to="/wishlist"><li>Wishlist</li></Link>
                     <Link to="/register"><li>Register</li></Link>
                </ul>
           </div>
 
-          <div className='md:w-[30%]'>
+          <div className='md:w-[31%]'>
                <h3 className='text-xl font-medium'>Sign Up for Email</h3>
                <p className='py-4'>Sign up to get first dibs on new arrivals, sales, exclusive content, events and more!</p>
                <div className='border border-white rounded-lg flex justify-between p-1'>
-               <input type="text" className='p-2 w-full bg-transparent focus:outline-none' placeholder='Enter your email...'  />
+               <input type="email" className='p-2 w-full bg-transparent focus:outline-none' placeholder='Enter your email...'  />
                <button className='bg-white text-black px-4 rounded'>Subscribe</button>
                </div>
           </div>

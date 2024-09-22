@@ -7,7 +7,7 @@ import { TfiHeadphoneAlt } from "react-icons/tfi";
 const About = () => {
   return (
     <>
-          <AboutBanner />
+        <AboutBanner />
           <div className='container flex md:flex-row flex-col-reverse items-center py-20 gap-12 md:gap-24'>
                <div className='flex-1'>
                     <img src="/images/about/about1.jpeg" alt="" className='' />
@@ -55,7 +55,7 @@ const About = () => {
                </div>
           </div>
 
-          <div className='container my-20 text-center border border-gray-300 rounded-md p-6 py-20 shadow-md'>
+          <div className='container my-16 text-center border border-gray-300 rounded-md p-6 py-20 shadow-md'>
                <h2 className='text-4xl font-medium pb-4'>Quality is our priority</h2>
                <p className='md:w-[50%] mx-auto mb-16'>Our talented stylists have put together outfits that are perfect for the season. They've variety of ways to inspire your next fashion-forward look.</p>
 

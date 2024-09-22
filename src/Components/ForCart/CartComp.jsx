@@ -20,7 +20,7 @@ const CartComp = ({ cartItem, removeFromCart, updateCartItemQuantity }) => {
 
   return (
     <div>
-      <div className="flex gap-6 w-full items-center border-b pb-8">
+      <div className="flex gap-6 w-full items-center border-b pb-8 relative">
         <div className="">
           <img
             src={cartItem?.image}
@@ -54,6 +54,10 @@ const CartComp = ({ cartItem, removeFromCart, updateCartItemQuantity }) => {
             </div>
 
             <div className="hidden md:block">
+               <button  onClick={() => removeFromCart(cartItem?.id)} className="text-xl"><AiOutlineDelete /></button>
+            </div>
+
+            <div className="md:hidden absolute bottom-4 right-3">
                <button  onClick={() => removeFromCart(cartItem?.id)} className="text-xl"><AiOutlineDelete /></button>
             </div>
 

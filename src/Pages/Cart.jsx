@@ -22,12 +22,13 @@ const Cart = () => {
     <>
       <CartBanner />
 
-      <div className="container md:flex gap-12 mt-14">
+      <div className="container md:flex gap-12 mt-14 px-4 md:px-0">
         {/* Check if cart is empty */}
         {cartItems.length === 0 ? (
           <div className="text-center w-full p-8 border border-gray-300 rounded shadow-md">
             <img src="/images/cart/emptycart.jpg" alt="empty cart" className="size-72 mx-auto" />
-            <h2 className="text-2xl font-medium mb-4">No items in the cart</h2>
+            <h2 className="text-2xl font-semibold mt-4">Your Wishlist is Empty</h2>
+            <p className="mb-7 mt-2">You haven't added any products to your cart yet.</p>
           </div>
         ) : (
           <>
@@ -91,7 +92,7 @@ const Cart = () => {
         )}
       </div>
 
-      <div className="container mt-8">
+      <div className="container mt-8 px-4 md:px-0">
         <Link to="/">
           <button className="p-2 bg-black text-white px-3 pr-4 rounded flex items-center gap-1">
           <FaAngleLeft />Continue Shopping

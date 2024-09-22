@@ -16,6 +16,7 @@ import ShippingAndCard from "./Pages/ShippingAndPayment";
 import OrderConfirm from "./Pages/OrderConfirm";
 import FAQ from "./Pages/FAQ";
 import { WishlistProvider } from "./Context/WishlistContext";
+import Policy from "./Pages/Policy";
 
 function App() {
   return (
@@ -35,12 +36,10 @@ function App() {
               <Route path="/register" element={<Register />} />
               <Route path="/wishlist" element={<Wishlist />} />
               <Route path="/cart" element={<Cart />} />
-              <Route
-                path="/shipping-and-payment"
-                element={<ShippingAndCard />}
-              />
+              <Route path="/shipping-and-payment" element={<ShippingAndCard />} />
               <Route path="/order-confirm" element={<OrderConfirm />} />
               <Route path="/faq" element={<FAQ />} />
+              <Route path="/policy" element={<Policy />} />
             </Routes>
             <Footer />
           </Router>
