@@ -17,6 +17,7 @@ import OrderConfirm from "./Pages/OrderConfirm";
 import FAQ from "./Pages/FAQ";
 import { WishlistProvider } from "./Context/WishlistContext";
 import Policy from "./Pages/Policy";
+import { Toaster } from 'react-hot-toast';
 
 function App() {
   return (
@@ -42,6 +43,7 @@ function App() {
               <Route path="/policy" element={<Policy />} />
             </Routes>
             <Footer />
+            <Toaster position="top-center" reverseOrder={false} />
           </Router>
         </CartProvider>
       </WishlistProvider>

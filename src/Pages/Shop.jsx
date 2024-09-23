@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import Product from "../Data/Product.json";
 import ShopBanner from "../Components/ForShop/ShopBanner";
 import Filter from "../Components/ForShop/Filter";
@@ -6,9 +6,14 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { IoIosHeartEmpty } from "react-icons/io";
 import { WishlistContext } from "../Context/WishlistContext";
+import { IoEyeOutline } from "react-icons/io5";
+import QuickView from "../Components/QuickView";
 
 const Shop = () => {
   const { addToWishlist } = useContext(WishlistContext); // Access addToWishlist from context
+  const [selectedProduct, setSelectedProduct] = useState(null); // State to store selected product
+  const [isModalOpen, setIsModalOpen] = useState(false); // State to control modal visibility
+
 
   // Handle adding to wishlist
   const handleAddToWishlist = (product) => {
@@ -21,6 +26,18 @@ const Shop = () => {
     };
     addToWishlist(wishlistItem); // Add the item to the wishlist
   };
+
+    // Handle preview button click
+    const handlePreviewClick = (product) => {
+      setSelectedProduct(product); // Set selected product data
+      setIsModalOpen(true); // Open modal
+    };
+  
+    // Handle closing the modal
+    const handleCloseModal = () => {
+      setIsModalOpen(false);
+      setSelectedProduct(null); // Clear selected product
+    };
 
   return (
     <>
@@ -68,29 +85,51 @@ const Shop = () => {
                   </div>
                 </Link>
 
+                <motion.div
+                className="absolute top-3 right-3 flex flex-col items-center gap-1" 
+                variants={{
+                  rest: {
+                    opacity: 0,
+                    scale: 0,
+                    transition: { duration: 0.3 },
+                  },
+                  hover: {
+                    opacity: 1,
+                    scale: 1,
+                    transition: { duration: 0.3 },
+                  },
+                }}
+              >
                 <motion.button
-                  onClick={() => handleAddToWishlist(product)} // Pass the product to handleAddToWishlist
-                  className="absolute top-3 right-3 bg-white rounded p-2 font-semibold"
-                  variants={{
-                    rest: {
-                      opacity: 0,
-                      scale: 0,
-                      transition: { duration: 0.3 },
-                    },
-                    hover: {
-                      opacity: 1,
-                      scale: 1,
-                      transition: { duration: 0.3 },
-                    },
-                  }}
+                  onClick={() => handleAddToWishlist(product)} 
+                  className="bg-white rounded p-2 font-semibold"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.3 }}
                 >
                   <IoIosHeartEmpty />
                 </motion.button>
+
+                <motion.button
+                  onClick={() => handlePreviewClick(product)} 
+                  className="bg-white rounded p-2 font-semibold mt-1" 
+                  initial={{ opacity: 0, scale: 0 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.5, delay: 1 }}
+                >
+                  <IoEyeOutline />
+                </motion.button>
+              </motion.div>
               </div>
             </motion.div>
           ))}
         </div>
       </div>
+      <QuickView
+        isOpen={isModalOpen}
+        onClose={handleCloseModal}
+        product={selectedProduct}
+      />
     </>
   );
 };

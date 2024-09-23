@@ -8,6 +8,7 @@ import { CartContext } from "../Context/CartContext";
 import { WishlistContext } from "../Context/WishlistContext";
 import Review from "../Components/ForProductDetail/Review";
 import Recomended from "../Components/ForProductDetail/Recomended";
+import { toast } from 'react-hot-toast';
 
 const ProductDetail = () => {
   const { id } = useParams(); // Get the id parameter from the URL
@@ -43,7 +44,7 @@ const ProductDetail = () => {
     // Handle adding to cart
     const handleAddToCart = () => {
       if (!selectedColor || !selectedSize) {
-        alert("Please select a color and size.");
+        toast.error("Please select a color and size."); // Display toast error message
         return;
       }
   

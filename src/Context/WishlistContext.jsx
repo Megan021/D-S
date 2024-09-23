@@ -1,5 +1,6 @@
 // Context/WishlistContext.js
 import React, { createContext, useState, useEffect } from "react";
+import { toast } from 'react-hot-toast';
 
 // Create the context
 export const WishlistContext = createContext();
@@ -21,8 +22,9 @@ export const WishlistProvider = ({ children }) => {
       const updatedWishlist = [...wishlist, item];
       setWishlist(updatedWishlist);
       localStorage.setItem("wishlist", JSON.stringify(updatedWishlist)); // Save to localStorage
+      toast.success("Product added to wishlist!")
     } else {
-      alert("This item is already in your wishlist.");
+      toast.error("This item is already in your wishlist.");
     }
   };
 
@@ -31,6 +33,7 @@ export const WishlistProvider = ({ children }) => {
     const updatedWishlist = wishlist.filter((item) => item.id !== itemId);
     setWishlist(updatedWishlist);
     localStorage.setItem("wishlist", JSON.stringify(updatedWishlist)); // Update localStorage
+    toast.success("Product remove from wishlist!")
   };
 
     // Calculate total quantity of items in the wishlist
