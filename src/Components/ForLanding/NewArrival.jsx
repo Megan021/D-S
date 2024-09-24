@@ -1,14 +1,17 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import Product from "../../Data/Product.json";
 import { Link } from "react-router-dom";
 import { WishlistContext } from "../../Context/WishlistContext";
 import { motion } from "framer-motion";
 import { IoIosHeartEmpty } from "react-icons/io";
 import { IoEyeOutline } from "react-icons/io5";
+import QuickView from "../QuickView";
 
 const NewArrival = () => {
   const { addToWishlist } = useContext(WishlistContext);
   const newProduct = Product.filter((product) => product?.tag === "new");
+  const [selectedProduct, setSelectedProduct] = useState(null); // State to store selected product
+  const [isModalOpen, setIsModalOpen] = useState(false); // State to control modal visibility
 
   // Handle adding to wishlist
   const handleAddToWishlist = (product) => {
@@ -21,6 +24,18 @@ const NewArrival = () => {
     };
     addToWishlist(wishlistItem); // Add the item to the wishlist
   };
+
+      // Handle preview button click
+      const handlePreviewClick = (product) => {
+        setSelectedProduct(product); // Set selected product data
+        setIsModalOpen(true); // Open modal
+      };
+    
+      // Handle closing the modal
+      const handleCloseModal = () => {
+        setIsModalOpen(false);
+        setSelectedProduct(null); // Clear selected product
+      };
 
   return (
     <>
@@ -96,7 +111,7 @@ const NewArrival = () => {
 
                 {/* Preview Button */}
                 <motion.button
-                  onClick={() => console.log("Preview clicked")} // Replace with actual preview functionality
+                  onClick={() => handlePreviewClick(product)} 
                   className="bg-white rounded p-2 font-semibold mt-1" // Add margin-top for spacing
                   initial={{ opacity: 0, scale: 0 }}
                   animate={{ opacity: 1, scale: 1 }}
@@ -108,6 +123,11 @@ const NewArrival = () => {
             </motion.div>
           ))}
         </div>
+      <QuickView
+        isOpen={isModalOpen}
+        onClose={handleCloseModal}
+        product={selectedProduct}
+      />
       </div>
     </>
   );

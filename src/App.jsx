@@ -18,6 +18,10 @@ import FAQ from "./Pages/FAQ";
 import { WishlistProvider } from "./Context/WishlistContext";
 import Policy from "./Pages/Policy";
 import { Toaster } from 'react-hot-toast';
+import MyAccount from "./Pages/Dashboard/MyAccount";
+import UserInfo from "./Pages/Dashboard/UserInfo";
+import AddressBook from "./Pages/Dashboard/AddressBook";
+import OrderDetail from "./Pages/Dashboard/OrderDetail";
 
 function App() {
   return (
@@ -41,6 +45,10 @@ function App() {
               <Route path="/order-confirm" element={<OrderConfirm />} />
               <Route path="/faq" element={<FAQ />} />
               <Route path="/policy" element={<Policy />} />
+              <Route path="/my-account" element={<MyAccount />} />
+              <Route path="/user-info" element={<UserInfo />} />
+              <Route path="/user-address" element={<AddressBook />} />
+              <Route path="/order-detail" element={<OrderDetail />} />
             </Routes>
             <Footer />
             <Toaster position="top-center" reverseOrder={false} />

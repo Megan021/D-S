@@ -75,9 +75,11 @@ const Navbar = () => {
                         Register
                       </li>
                       </Link>
+                      <Link to="/my-account">
                       <li className="bg-gray-200 hover:bg-gray-300 p-2 px-4 block whitespace-nowrap cursor-pointer">
                         My Account
                       </li>
+                      </Link>
                     </ul>
                   </div>
                 </li>

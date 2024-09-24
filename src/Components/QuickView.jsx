@@ -5,6 +5,7 @@ import { toast } from 'react-hot-toast';
 import { GoChevronDown } from "react-icons/go";
 import { CartContext } from "../Context/CartContext";
 import { HiArrowUpRight } from "react-icons/hi2";
+import { Link } from "react-router-dom";
 
 const QuickView = ({ isOpen, onClose, product }) => {
      
@@ -70,10 +71,10 @@ const QuickView = ({ isOpen, onClose, product }) => {
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.3 }}
-        className="bg-white rounded-lg shadow-lg w-[100%] md:w-1/2 relative flex gap-4" // Added 'relative' for proper positioning of the close button
+        className="bg-white rounded-lg shadow-lg w-[100%] md:w-1/2 relative md:flex gap-4" // Added 'relative' for proper positioning of the close button
       >
 
-        <div className="w-[50%] h-[70vh]">
+        <div className="md:w-[50%] h-[70vh]">
           <img
             src={
               Array.isArray(product.image) ? product.image[0] : product.image
@@ -83,7 +84,7 @@ const QuickView = ({ isOpen, onClose, product }) => {
           />
         </div>
 
-        <div className="w-[50%] p-5">
+        <div className="md:w-[50%] p-5">
           <div className="border-b border-gray-300 pb-3">
             <p className="text-sm">{product?.sku}</p>
             <h2 className="text-lg py-1">{product?.name}</h2>
@@ -149,10 +150,12 @@ const QuickView = ({ isOpen, onClose, product }) => {
               add to cart
             </button>
           </div>
-          <button className="flex items-center gap-1 border-b border-black pb-px mt-6">View full details <HiArrowUpRight className="text-xs" /></button>
+          <Link to={`/product-detail/${product.id}`}>
+          <button className="flex items-center gap-1 border-b border-black pb-px mt-6 text-sm font-medium">View full details<HiArrowUpRight className="text-xs" /></button>
+          </Link>
         </div>
 
-        <button className="absolute top-2 right-2 text-xl font-bold" onClick={onClose}>
+        <button className="absolute -top-3 -right-3 rounded-full bg-white text-3xl font-bold" onClick={onClose}>
           <SlClose />
         </button>
 

@@ -1,6 +1,7 @@
 import React from "react";
 import Category from "../../Data/Category.json";
 import { GoArrowUpRight } from "react-icons/go";
+import { Link } from "react-router-dom";
 
 const TopCategory = () => {
   return (
@@ -14,7 +15,8 @@ const TopCategory = () => {
               </h1>
             </div>
             {Category.map((category, index) => (
-              <div key={index} className="cursor-pointer rounded-lg relative border overflow-hidden border-gray-300 h-32 w-full md:h-40">
+              <Link key={index} to="/shop">
+              <div className="cursor-pointer rounded-lg relative border overflow-hidden border-gray-300 h-32 w-full md:h-40">
                 <img
                   src={category?.image}
                   alt={category?.name}
@@ -25,6 +27,7 @@ const TopCategory = () => {
                   <GoArrowUpRight className="mt-px " />
                 </p>
               </div>
+              </Link>
             ))}
           </div>
         </div>
