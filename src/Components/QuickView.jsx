@@ -65,7 +65,7 @@ const QuickView = ({ isOpen, onClose, product }) => {
   return (
     <div
       id="modal-overlay"
-      className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
+      className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 px-4 md:px-0"
     >
       <motion.div
         initial={{ opacity: 0, scale: 0.8 }}
@@ -74,13 +74,13 @@ const QuickView = ({ isOpen, onClose, product }) => {
         className="bg-white rounded-lg shadow-lg w-[100%] md:w-1/2 relative md:flex gap-4" // Added 'relative' for proper positioning of the close button
       >
 
-        <div className="md:w-[50%] h-[70vh]">
+        <div className="md:w-[50%] h-[30vh] md:h-[70vh]">
           <img
             src={
               Array.isArray(product.image) ? product.image[0] : product.image
             }
             alt={product.name}
-            className="rounded-l-lg h-full w-full object-cover border-r border-gray-300 rounded"
+            className="rounded-l-lg h-full w-full object-contain md:object-cover border-r border-gray-300 rounded"
           />
         </div>
 

@@ -5,7 +5,7 @@ const UserInfo = () => {
   return (
     <>
     <SubMenu />
-     <div className='container mt-16 border border-gray-200 shadow rounded-lg p-8 w-[50%]'>
+     <div className='container mt-16 border border-gray-200 shadow rounded-lg p-8 md:w-[50%]'>
           <h2 className='text-3xl font-bold mb-3 uppercase'>My Details</h2>
           <p className=''>Feel free to edit any of your details below so your account is up to date.</p>
           <div className='uppercase my-12'>

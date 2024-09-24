@@ -22,12 +22,14 @@ import MyAccount from "./Pages/Dashboard/MyAccount";
 import UserInfo from "./Pages/Dashboard/UserInfo";
 import AddressBook from "./Pages/Dashboard/AddressBook";
 import OrderDetail from "./Pages/Dashboard/OrderDetail";
+import { OrderProvider } from "./Context/OrderContext";
 
 function App() {
   return (
     <>
       <WishlistProvider>
         <CartProvider>
+        <OrderProvider>
           <Router>
             <ScrollToTop /> 
             <Navbar />
@@ -53,6 +55,7 @@ function App() {
             <Footer />
             <Toaster position="top-center" reverseOrder={false} />
           </Router>
+          </OrderProvider>
         </CartProvider>
       </WishlistProvider>
     </>

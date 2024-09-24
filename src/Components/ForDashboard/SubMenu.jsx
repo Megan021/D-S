@@ -8,7 +8,7 @@ const SubMenu = () => {
   return (
     <div className='border-b border-gray-200 py-4'>
       <div className='container flex justify-between items-center'>
-        <div className='flex gap-8'>
+        <div className='flex gap-4 md:gap-8 overflow-x-scroll md:overflow-auto flex-wrap relative ml-3 md:ml-0'>
           <Link to="/user-info">
             <button
               className={`p-1 px-4 bg-gray-100 hover:bg-gray-300 duration-200 rounded-xl ${
@@ -41,16 +41,19 @@ const SubMenu = () => {
 
           <Link to="/wishlist">
             <button
-              className={`p-1 px-4 bg-gray-100 hover:bg-gray-300 duration-200 rounded-xl ${
-                location.pathname === "/wishlist" ? "bg-gray-500 text-white" : ""
-              }`}
+              className="p-1 px-4 bg-gray-100 hover:bg-gray-300 duration-200 rounded-xl"
             >
               Wishlist
             </button>
           </Link>
+          <Link to="/" className='md:hidden absolute bottom-1 right-5'>
+          <button className='flex items-center gap-1'>
+              Logout <IoLogOutOutline className='text-xl' />
+            </button>
+          </Link>
         </div>
 
-        <div>
+        <div className='hidden md:block'>
           <Link to="/">
             <button className='flex items-center gap-1'>
               Logout <IoLogOutOutline className='text-xl' />

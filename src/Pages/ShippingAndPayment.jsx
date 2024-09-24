@@ -2,68 +2,20 @@ import React, { useContext } from "react";
 import { CartContext } from "../Context/CartContext";
 import ShippingComp from "../Components/ForShipping/ShippingComp";
 import PaymentInfo from "../Components/ForShipping/PaymentInfo";
-import { Link, useNavigate } from "react-router-dom";
-import { toast } from "react-hot-toast";
+import { Link } from "react-router-dom";
 
 const ShippingAndPayment = () => {
-  // Get cart count and items from CartContext
-  const { cartCount, cartItems, clearCart } = useContext(CartContext);
-
-  const navigate = useNavigate();
+  // Get cart count from CartContext
+  const { cartCount, cartItems } = useContext(CartContext);
 
   // Calculate subtotal dynamically
-  const subtotal = cartItems.reduce(
-    (acc, item) => acc + item.price * item.quantity,
-    0
-  );
+  const subtotal = cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0);
 
   // Set a default shipping charge
   const shippingCharge = 100;
 
   // Calculate grand total
   const grandTotal = subtotal + shippingCharge;
-
-  // Handle place order
-  const handlePlaceOrder = () => {
-    if (!cartItems || cartItems.length === 0) {
-      toast.error("No items in the cart to place an order.");
-      return;
-    }
-
-    // Get shipping and payment info (assuming you have states or context for these)
-    const shippingInfo = JSON.parse(localStorage.getItem("shippingInfo"));
-    const paymentInfo = "Cash on Delivery";
-
-    if (!shippingInfo || !paymentInfo) {
-      toast.error("Please fill out the shipping and payment information.");
-      return;
-    }
-
-    // Create the order data
-    const order = {
-      orderId: new Date().getTime(), // Generate a unique order ID based on timestamp
-      cartItems,
-      shippingInfo,
-      paymentInfo,
-      subtotal,
-      shippingCharge,
-      grandTotal,
-      orderDate: new Date().toLocaleString(), // Add order date
-    };
-
-    // Save the order data to localStorage
-    const existingOrders = JSON.parse(localStorage.getItem("orders")) || [];
-    localStorage.setItem("orders", JSON.stringify([...existingOrders, order]));
-
-    // Clear the cart
-    clearCart();
-
-    // Show success toast
-    toast.success("Order placed successfully!");
-
-    // Navigate to order confirmation page
-    navigate("/order-confirm");
-  };
 
   return (
     <>
@@ -108,12 +60,11 @@ const ShippingAndPayment = () => {
                 <h3>Rs. {grandTotal}</h3>
               </div>
             </div>
-            <button
-              onClick={handlePlaceOrder}
-              className="uppercase p-2 w-full bg-black text-white mt-5 rounded"
-            >
+            <Link to="/order-confirm">
+            <button className="uppercase p-2 w-full bg-black text-white mt-5 rounded">
               Place order
             </button>
+            </Link>
           </div>
         </div>
       </div>

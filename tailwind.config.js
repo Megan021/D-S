@@ -9,7 +9,7 @@ theme: {
     screens: {
       xs: "425px",
       sm: "567px",
-      md: "768px",
+      md: "600px",
       lg: "904px",
       xl: "1280px",
       "2xl": "1150px",

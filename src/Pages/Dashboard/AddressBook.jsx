@@ -7,14 +7,14 @@ const AddressBook = () => {
   return (
     <>
       <SubMenu />
-      <div className="container mt-16 border border-gray-200 shadow rounded-lg p-8 w-[60%]">
+      <div className="container mt-16 border border-gray-200 shadow rounded-lg p-8 md:w-[60%]">
         <h2 className="text-3xl font-bold mb-3 uppercase">Address Book</h2>
         <p>
           Feel free to edit any of your address details below so your account is
           up to date.
         </p>
 
-        <div className="grid grid-cols-2 gap-5">
+        <div className="grid md:grid-cols-2 gap-5">
         <div className="border border-gray-300 hover:border-black p-5 mt-8">
           <h3 className="pb-20">New Address</h3>
           <i>
