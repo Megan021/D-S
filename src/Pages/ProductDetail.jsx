@@ -9,6 +9,10 @@ import { WishlistContext } from "../Context/WishlistContext";
 import Review from "../Components/ForProductDetail/Review";
 import Recomended from "../Components/ForProductDetail/Recomended";
 import { toast } from 'react-hot-toast';
+import { motion, AnimatePresence } from "framer-motion";
+import { LiaShippingFastSolid } from "react-icons/lia";
+import { MdOutlineCurrencyExchange } from "react-icons/md";
+import { AiOutlineSafety } from "react-icons/ai";
 
 const ProductDetail = () => {
   const { id } = useParams(); // Get the id parameter from the URL
@@ -27,6 +31,7 @@ const ProductDetail = () => {
     const [selectedColor, setSelectedColor] = useState(""); // Color state
     const [selectedSize, setSelectedSize] = useState(""); // Size state
     const [quantity, setQuantity] = useState(1); // Quantity state
+    const [isShippingVisible, setIsShippingVisible] = useState(false);
 
   if (!product) {
     return (
@@ -73,6 +78,11 @@ const ProductDetail = () => {
     
     addToWishlist(wishlistItem); // Add the item to the wishlist
   };
+
+    // Toggle the visibility of the shipping information
+    const toggleShippingVisibility = () => {
+      setIsShippingVisible(!isShippingVisible);
+    };
 
   return (
     <>
@@ -186,8 +196,8 @@ const ProductDetail = () => {
               </button>
             </div>
 
-            <div className="flex border-b border-gray-300 pb-2 justify-between mt-5">
-              <button className="flex items-center uppercase text-sm font-semibold gap-2">
+            <div onClick={toggleShippingVisibility} className="flex border-b border-gray-300 pb-2 justify-between mt-5">
+              <button  className="flex items-center uppercase text-sm font-semibold gap-2">
                 <img src="/images/productDetail/shipping.svg" className="size-6 ml-1" />
                 shipping & returns
               </button>
@@ -195,6 +205,46 @@ const ProductDetail = () => {
                 <AiOutlinePlus />
               </button>
             </div>
+
+             {/* Slide-down content for Shipping & Returns */}
+             <AnimatePresence>
+              {isShippingVisible && (
+                <motion.div
+                  initial={{ height: 0, opacity: 0 }}
+                  animate={{ height: "auto", opacity: 1 }}
+                  exit={{ height: 0, opacity: 0 }}
+                  transition={{ duration: 0.3 }}
+                  className="overflow-hidden bg-gray-100 p-4 mt-2 border border-gray-200"
+                >
+                  <div className="">
+
+                    <div className="flex gap-4 mb-5">
+                      <div><i><LiaShippingFastSolid className="text-3xl rounded-full border border-black p-1" /></i></div>
+                      <div>
+                        <h2 className="font-medium">Fast Shipping</h2>
+                        <p>Fast delivery all over Nepal.</p>
+                      </div>
+                    </div>
+                    <div className="flex gap-4 mb-5">
+                      <div><i><MdOutlineCurrencyExchange className="text-3xl rounded-full border border-black p-1" /></i></div>
+                      <div>
+                        <h2 className="font-medium">Return Policy</h2>
+                        <p>Return and exchange goods are not supported.</p>
+                      </div>
+                    </div>
+                    <div className="flex gap-4">
+                      <div><i><AiOutlineSafety className="text-3xl rounded-full border border-black p-1" /></i></div>
+                      <div>
+                        <h2 className="font-medium">Shopping Security</h2>
+                        <p>Secure your shopping payment.</p>
+                      </div>
+                    </div>
+
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+
           </div>
         </div>
       </div>
