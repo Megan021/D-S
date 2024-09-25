@@ -71,7 +71,7 @@ const QuickView = ({ isOpen, onClose, product }) => {
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.3 }}
-        className="bg-white rounded-lg shadow-lg md:max-w-screen-md lg:max-w-screen-lg relative md:flex gap-4" // Added 'relative' for proper positioning of the close button
+        className="bg-white rounded-lg shadow-lg md:w-[820px] lg:max-w-screen-lg relative md:flex gap-4" // Added 'relative' for proper positioning of the close button
       >
 
         <div className="md:w-[50%] h-[30vh] md:h-[40vh] lg:h-[70vh]">

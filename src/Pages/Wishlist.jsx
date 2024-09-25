@@ -42,6 +42,7 @@ const Wishlist = () => {
                   alt={wishlist?.name} 
                   className="aspect-[3/3] object-cover rounded-lg" 
                 />
+                <Link to={`/product-detail/${wishlist?.id}`}>
                 <div className="p-1 pt-3">
                   <p className="leading-5 pb-1">{wishlist?.name}</p>
                   <div className="flex gap-4">
@@ -53,6 +54,8 @@ const Wishlist = () => {
                     <p className="font-semibold text-red-500">Rs. {wishlist?.price}</p>
                   </div>
                 </div>
+                </Link>
+
                 <motion.button
                 onClick={() => removeFromWishlist(wishlist?.id)}
                   className='absolute top-3 right-3 bg-white rounded p-2 font-semibold'

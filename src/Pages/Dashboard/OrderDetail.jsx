@@ -72,6 +72,7 @@ const OrderDetail = () => {
               />
               <Link to={`/product-detail/${product?.id}`}>
                 <div className="p-1 pt-3">
+                  <p className="font-semibold pb-3">State: Processing</p>
                   <p className="leading-5 pb-1">{product?.name}</p>
                   <div className="flex gap-4">
                     {product.oldprice && (
@@ -102,16 +103,6 @@ const OrderDetail = () => {
                   },
                 }}
               >
-                {/* Heart Button */}
-                <motion.button
-                  onClick={() => handleAddToWishlist(product)} // Pass the product to handleAddToWishlist
-                  className="bg-white rounded p-2 font-semibold"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <IoIosHeartEmpty />
-                </motion.button>
 
                 {/* Preview Button */}
                 <motion.button

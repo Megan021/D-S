@@ -3,35 +3,32 @@ import { Link, useParams } from "react-router-dom";
 import Product from "../Data/Product.json";
 import { GoChevronDown } from "react-icons/go";
 import { IoIosHeartEmpty } from "react-icons/io";
-import { AiOutlinePlus } from "react-icons/ai";
+import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
 import { CartContext } from "../Context/CartContext";
 import { WishlistContext } from "../Context/WishlistContext";
 import Review from "../Components/ForProductDetail/Review";
 import Recomended from "../Components/ForProductDetail/Recomended";
 import { toast } from 'react-hot-toast';
-import { motion, AnimatePresence } from "framer-motion";
-import { LiaShippingFastSolid } from "react-icons/lia";
-import { MdOutlineCurrencyExchange } from "react-icons/md";
-import { AiOutlineSafety } from "react-icons/ai";
+import { AnimatePresence, motion } from "framer-motion";
+
+import ShippingReturn from "../Components/ForProductDetail/ShippingReturn";
 
 const ProductDetail = () => {
-  const { id } = useParams(); // Get the id parameter from the URL
-  const { addToCart } = useContext(CartContext); // Access addToCart from CartContext
-  const { addToWishlist } = useContext(WishlistContext); // Access addToWishlist from WishlistContext
+  const { id } = useParams(); 
+  const { addToCart } = useContext(CartContext); 
+  const { addToWishlist } = useContext(WishlistContext); 
   const product = Product.find((item) => item.id === parseInt(id)); // Find the product with the matching id
 
   // Initialize mainImage with the first image in the array or fallback to the single image property
-  const [mainImage, setMainImage] = useState(
-    product?.image && product.image.length > 0
-      ? product.image[0] // Use the first image from the images array
-      : product?.image // Fallback to the main image property
+  const [mainImage, setMainImage] = useState( product?.image && product.image.length > 0 ? product.image[0] : product?.image // Fallback to the main image property
   );
 
     // State for selected options
     const [selectedColor, setSelectedColor] = useState(""); // Color state
     const [selectedSize, setSelectedSize] = useState(""); // Size state
     const [quantity, setQuantity] = useState(1); // Quantity state
-    const [isShippingVisible, setIsShippingVisible] = useState(false);
+    const [isShippingVisible, setIsShippingVisible] = useState(true);
+    const [isDescVisible, setIsDescVisible] = useState(false);
 
   if (!product) {
     return (
@@ -49,7 +46,7 @@ const ProductDetail = () => {
     // Handle adding to cart
     const handleAddToCart = () => {
       if (!selectedColor || !selectedSize) {
-        toast.error("Please select a color and size."); // Display toast error message
+        toast.error("Please select a color and size.");
         return;
       }
   
@@ -83,6 +80,10 @@ const ProductDetail = () => {
     const toggleShippingVisibility = () => {
       setIsShippingVisible(!isShippingVisible);
     };
+
+    const toggleDescVissibility = () => {
+      setIsDescVisible(!isDescVisible);
+    }
 
   return (
     <>
@@ -186,15 +187,45 @@ const ProductDetail = () => {
           </button>
 
           <div className="mt-8">
-            <div className="flex border-b border-gray-300 pb-2 justify-between">
+            <div onClick={toggleDescVissibility} className="flex border-b border-gray-300 pb-2 justify-between">
               <button className="flex items-center uppercase text-sm font-semibold ">
                 <img src="/images/productDetail/detail.svg" className="size-8" />
-                details
+                Description
               </button>
               <button>
-                <AiOutlinePlus />
+                {isDescVisible ? <AiOutlineMinus /> : <AiOutlinePlus />} {/* Toggle icon */}
               </button>
+              
             </div>
+            <AnimatePresence>
+              {isDescVisible && (
+                <motion.div
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: "auto" }}
+                  exit={{ opacity: 0, height: 0 }}
+                  className="overflow-hidden bg-gray-100 p-4 mt-2 border border-gray-200 mb-8"
+                >
+                  <div className="flex justify-between w-[30%]">
+                    <h2 className="font-medium">SKU:</h2>
+                    <h2>asd123</h2>
+                  </div>
+                  <div className="flex justify-between w-[30%]">
+                    <h2 className="font-medium">Brand:</h2>
+                    <h2>Adidas</h2>
+                  </div>
+                  <div className="flex justify-between w-[30%]">
+                    <h2 className="font-medium">Style:</h2>
+                    <h2>Casual</h2>
+                  </div>
+                  <div className="flex justify-between w-[30%]">
+                    <h2 className="font-medium">Material:</h2>
+                    <h2>Cotton</h2>
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+
+            
 
             <div onClick={toggleShippingVisibility} className="flex border-b border-gray-300 pb-2 justify-between mt-5">
               <button  className="flex items-center uppercase text-sm font-semibold gap-2">
@@ -209,41 +240,10 @@ const ProductDetail = () => {
              {/* Slide-down content for Shipping & Returns */}
              <AnimatePresence>
               {isShippingVisible && (
-                <motion.div
-                  initial={{ height: 0, opacity: 0 }}
-                  animate={{ height: "auto", opacity: 1 }}
-                  exit={{ height: 0, opacity: 0 }}
-                  transition={{ duration: 0.3 }}
-                  className="overflow-hidden bg-gray-100 p-4 mt-2 border border-gray-200"
-                >
-                  <div className="">
-
-                    <div className="flex gap-4 mb-5">
-                      <div><i><LiaShippingFastSolid className="text-3xl rounded-full border border-black p-1" /></i></div>
-                      <div>
-                        <h2 className="font-medium">Fast Shipping</h2>
-                        <p>Fast delivery all over Nepal.</p>
-                      </div>
-                    </div>
-                    <div className="flex gap-4 mb-5">
-                      <div><i><MdOutlineCurrencyExchange className="text-3xl rounded-full border border-black p-1" /></i></div>
-                      <div>
-                        <h2 className="font-medium">Return Policy</h2>
-                        <p>Return and exchange goods are not supported.</p>
-                      </div>
-                    </div>
-                    <div className="flex gap-4">
-                      <div><i><AiOutlineSafety className="text-3xl rounded-full border border-black p-1" /></i></div>
-                      <div>
-                        <h2 className="font-medium">Shopping Security</h2>
-                        <p>Secure your shopping payment.</p>
-                      </div>
-                    </div>
-
-                  </div>
-                </motion.div>
+                <ShippingReturn />
               )}
             </AnimatePresence>
+           
 
           </div>
         </div>
