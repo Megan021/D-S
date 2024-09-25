@@ -1,13 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import SubMenu from "../../Components/ForDashboard/SubMenu";
 import { GoPlus } from "react-icons/go";
 import { IoCheckmarkCircleSharp } from "react-icons/io5";
 
 const AddressBook = () => {
+  const [isEditAddress, setIsditAddress] = useState(false);
+
+  const toggleEditAddress = () => {
+    setIsditAddress(!isEditAddress);
+  }
+
   return (
     <>
       <SubMenu />
-      <div className="container mt-16 border border-gray-200 shadow rounded-lg p-8 md:w-[60%]">
+      <div className="container mt-16 border border-gray-200 shadow rounded-lg p-8 lg:w-[60%]">
         <h2 className="text-3xl font-bold mb-3 uppercase">Address Book</h2>
         <p>
           Feel free to edit any of your address details below so your account is
