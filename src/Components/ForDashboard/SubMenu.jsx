@@ -25,7 +25,7 @@ const SubMenu = () => {
                 location.pathname === "/user-address" ? "bg-gray-500 text-white" : ""
               }`}
             >
-              Add First Address
+              Address Book
             </button>
           </Link>
 

@@ -1,6 +1,4 @@
 import React, { useContext } from 'react';
-// import { Link } from 'react-router-dom';
-// import Product from "../Data/Product.json";
 import { RiDeleteBin5Line } from "react-icons/ri";
 import { motion } from 'framer-motion';
 import { WishlistContext } from '../Context/WishlistContext';

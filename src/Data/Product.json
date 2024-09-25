@@ -8,7 +8,9 @@
           "sku": "asd123",
           "size": ["S","M","L"],
           "color": ["black", "white", "blue"],
-          "tag": "new"
+          "tag": "new",
+          "status": "Processing"
+          
      },
      {
           "id": 2,
@@ -18,7 +20,8 @@
           "sku": "zxc123",
           "size": ["S","M","L"],
           "color": ["black", "white", "blue"],
-          "tag": "new"
+          "tag": "new",
+          "status": "on Deliver"
      },
      {
           "id": 3,
@@ -30,7 +33,8 @@
           "size": ["S","M","L"],
           "color": ["black", "white", "blue"],
           "tag": "new",
-          "discount": "-20%"
+          "discount": "-20%",
+          "status": "Processing"
      },
      {
           "id": 4,
@@ -40,7 +44,8 @@
           "sku": "asd456",
           "size": ["S","M","L"],
           "color": ["black", "white", "blue"],
-          "tag": "new"
+          "tag": "new",
+          "status": "On Deliver"
      },
      {
           "id": 5,
