@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import SubMenu from "../../Components/ForDashboard/SubMenu";
 import { GoPlus } from "react-icons/go";
 import { IoCheckmarkCircleSharp } from "react-icons/io5";
+import AddressModel from "../../Components/ForAddressBook/AddressModel";
 
 const AddressBook = () => {
   const [isEditAddress, setIsditAddress] = useState(false);
@@ -21,12 +22,17 @@ const AddressBook = () => {
         </p>
 
         <div className="grid md:grid-cols-2 gap-5">
-        <div className="border border-gray-300 hover:border-black p-5 mt-8">
+        <div onClick={toggleEditAddress} className="border border-gray-300 hover:border-black p-5 mt-8">
           <h3 className="pb-20">New Address</h3>
           <i>
             <GoPlus className="text-4xl" />
           </i>
         </div>
+
+        <AddressModel
+        isOpen={isEditAddress}
+        toggleEditAddress={toggleEditAddress}
+         />
 
         <div className="border border-black p-5 mt-8 relative">
           <h2 className="font-semibold">Brenna Cotton</h2>

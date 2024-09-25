@@ -32,18 +32,18 @@ const LoginDetailModel = ({ isOpen, toggleEditLogin }) => {
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.3 }} 
-        className='bg-white p-10 rounded-lg shadow-lg w-full max-w-screen-md relative' ref={modalRef}>
+        className='bg-white p-6 rounded-lg shadow-lg w-full max-w-screen-md relative' ref={modalRef}>
         <h2 className='text-2xl font-bold mb-6 uppercase'>Edit Login Details</h2>
         <form className=''>
-          <div className='mb-6'>
+          <div className='mb-5'>
             <label className='text-sm font-semibold'>Email</label>
             <input type='text' className='border border-gray-300 p-2 w-full rounded-sm focus:outline-none hover:border-black' placeholder='Enter email' />
           </div>
-          <div className='mb-6'>
+          <div className='mb-5'>
             <label className='text-sm font-semibold'>Old Password</label>
             <input type='text' className='border border-gray-300 p-2 w-full rounded-sm focus:outline-none hover:border-black' placeholder='Enter old password' />
           </div>
-          <div className='mb-12'>
+          <div className='mb-10'>
             <label className='text-sm font-semibold'>New Password</label>
             <input type='text' className='border border-gray-300 p-2 w-full rounded-sm focus:outline-none hover:border-black' placeholder='Enter new password' />
           </div>

@@ -32,18 +32,18 @@ const UserDetailModel = ({ isOpen, toggleEditUserDetail }) => {
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.3 }} 
-        className='bg-white p-10 rounded-lg shadow-lg w-full max-w-screen-md relative' ref={modalRef}>
+        className='bg-white p-7 rounded-lg shadow-lg w-full max-w-screen-md relative' ref={modalRef}>
         <h2 className='text-2xl font-bold mb-6'>Edit Your Details</h2>
         <form className=''>
-          <div className='mb-6'>
+          <div className='mb-5'>
             <label className='text-sm font-semibold'>Full Name</label>
             <input type='text' className='border border-gray-300 p-2 w-full rounded-sm focus:outline-none hover:border-black' placeholder='Enter full name' />
           </div>
-          <div className='mb-6'>
+          <div className='mb-5'>
             <label className='text-sm font-semibold'>Date of Birth</label>
             <input type='date' className='border border-gray-300 p-2 w-full rounded-sm focus:outline-none hover:border-black' />
           </div>
-          <div className='mb-12'>
+          <div className='mb-10'>
             <label className='text-sm font-semibold'>Gender</label>
             <select className='border border-gray-300 p-3 w-full rounded-sm focus:outline-none hover:border-black'>
               <option value='male'>Male</option>
