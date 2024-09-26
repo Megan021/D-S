@@ -27,7 +27,7 @@ const Cart = () => {
         {cartItems.length === 0 ? (
           <div className="text-center w-full p-8 border border-gray-300 rounded shadow-md">
             <img src="/images/cart/emptycart.jpg" alt="empty cart" className="size-72 mx-auto" />
-            <h2 className="text-2xl font-semibold mt-4">Your Wishlist is Empty</h2>
+            <h2 className="text-2xl font-semibold mt-4">Your Cart is Empty</h2>
             <p className="mb-7 mt-2">You haven't added any products to your cart yet.</p>
           </div>
         ) : (

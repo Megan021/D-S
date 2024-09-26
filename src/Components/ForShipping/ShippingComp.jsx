@@ -27,7 +27,7 @@ const ShippingComp = () => {
               />
             </div>
             <div className="md:flex gap-5 mb-5">
-              <div className="md:w-[50%]">
+              <div className="md:w-[50%] mb-5 md:mb-auto">
                 <label htmlFor="" className="uppercase text-sm">
                   Enter City*
                 </label>
@@ -37,7 +37,7 @@ const ShippingComp = () => {
                   className="p-2 border rounded border-gray-300 w-full"
                 />
               </div>
-              <div className="md:w-[50%]">
+              <div className="md:w-[50%] mb-5 md:mb-auto">
                 <label htmlFor="" className="uppercase text-sm">
                   Enter State/Province*
                 </label>
@@ -49,7 +49,7 @@ const ShippingComp = () => {
               </div>
             </div>
             <div className="md:flex gap-5 mb-5">
-              <div className="md:w-[50%]">
+              <div className="md:w-[50%] mb-5 md:mb-auto">
                 <label htmlFor="" className="uppercase text-sm">
                   Enter Zip Code*
                 </label>
@@ -59,7 +59,7 @@ const ShippingComp = () => {
                   className="p-2 border rounded border-gray-300 w-full"
                 />
               </div>
-              <div className="md:w-[50%]">
+              <div className="md:w-[50%] mb-5 md:mb-auto">
                 <label htmlFor="" className="uppercase text-sm">
                   Enter Country*
                 </label>

@@ -87,7 +87,7 @@ const ProductDetail = () => {
 
   return (
     <>
-      <div className="container md:flex py-20 pb-16 gap-20 px-4 md:px-0">
+      <div className="container md:flex py-6 md:py-14 pb-16 gap-20 px-4 md:px-0">
         <div className="md:flex lg:flex-row flex flex-col-reverse md:w-[60%] md:h-[40rem] gap-5">
           <div className="flex lg:flex-col mr-4 gap-5">
             {/* Assuming product.images is an array of image URLs */}
@@ -104,11 +104,11 @@ const ProductDetail = () => {
           </div>
 
           {/* Main Product Image */}
-          <div className="w-full border border-gray-300 rounded">
+          <div className="w-full h-[50vh] md:h-auto border border-gray-300 rounded">
             <img
               src={mainImage}
               alt={product?.name}
-              className="w-full h-full mx-auto object-cover"
+              className="w-full h-full mx-auto md:object-cover object-contain"
             />
           </div>
         </div>
@@ -135,7 +135,7 @@ const ProductDetail = () => {
 
           <div className="mb-8">
             <h3 className="uppercase text-sm pb-4 font-semibold">Color</h3>
-            <ul className="flex gap-7">
+            <ul className="flex gap-5">
             <li
                 className={`rounded-full p-5 bg-black hover:ring-2 ring-offset-2 ring-black cursor-pointer ${
                   selectedColor === "black" && "ring-2 ring-offset-2"

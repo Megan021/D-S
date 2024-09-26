@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const BigSale = () => {
   return (
     <>
-      <div className='bg-[url("/images/banner/banner1.jpg")] bg-center bg-fixed'>
+      <div className='bg-[url("/images/banner/banner1.jpg")] md:bg-center bg-fixed bg-left-top'>
         <div className="bg-black bg-opacity-50 text-center uppercase text-white py-16 md:py-32 bg-fixed">
           <p className="text-xs font-semibold">ends tomorrow</p>
           <h2 className="text-4xl md:text-6xl font-bold py-5">big sale <br /> upto 50% off</h2>

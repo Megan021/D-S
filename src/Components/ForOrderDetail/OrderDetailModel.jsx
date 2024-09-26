@@ -101,7 +101,7 @@ const OrderDetailModel = ({ isOpen, onClose, product }) => {
               </div>
             </div>
 
-            <div className="w-[35% flex items-start justify-end border-t mt-4 border-gray-300 pt-4">
+            <div className="flex items-start justify-end border-t mt-4 border-gray-300 pt-4">
             {/* <div>
               <Link to={`/product-detail/${product?.id}`}>
                 <button className="p-2 px-5 bg-gray-100 font-medium rounded-full hover:bg-gray-200 duration-300">
@@ -126,8 +126,6 @@ const OrderDetailModel = ({ isOpen, onClose, product }) => {
               </div>
             </div>
           </div>
-
-          
         </motion.div>
       </div>
     </>

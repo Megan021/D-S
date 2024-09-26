@@ -14,7 +14,7 @@ const About = () => {
                </div>
 
                <div className='flex-1 px-4 md:px-0'>
-                    <h2 className='font-semibold text-5xl pb-8 leading-[4rem]'>Unveiling Your Unique Fashion Journey</h2>
+                    <h2 className='font-semibold text-4xl md:text-5xl pb-8 md:leading-[4rem]'>Unveiling Your Unique Fashion Journey</h2>
                     <p className='text-lg'>Welcome to Mixtas Store, where fashion meets individuality, and style is more than just clothing – it's a statement. Our passion for fashion drives us to curate a collection that celebrates diversity, embraces trends, and empowers you to express yourself through clothing.</p>
                </div>
           </div>

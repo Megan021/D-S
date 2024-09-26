@@ -114,6 +114,8 @@ const BestSeller = () => {
                   <IoEyeOutline />
                 </motion.button>
               </motion.div>
+              <motion.button onClick={() => handleAddToWishlist(product)} className="absolute top-1 right-2 z-20 bg-white rounded p-2 font-semibold mt-1 md:hidden"><IoIosHeartEmpty /></motion.button>
+                <motion.button onClick={() => handlePreviewClick(product)}  className="absolute top-11 right-2 z-20 bg-white rounded p-2 font-semibold mt-1 md:hidden"><IoEyeOutline /></motion.button>
             </motion.div>
           ))}
         </div>

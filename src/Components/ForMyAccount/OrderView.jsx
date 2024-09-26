@@ -1,36 +1,36 @@
-import React, { useState } from "react";
-import SubMenu from "../../Components/ForDashboard/SubMenu";
-import { motion } from "framer-motion";
+import React, { useState } from 'react'
+import OrderDetailModel from '../ForOrderDetail/OrderDetailModel'
 import Product from "../../Data/Product.json";
-import { Link } from "react-router-dom";
-import { IoEyeOutline } from "react-icons/io5";
-import OrderDetailModel from "../../Components/ForOrderDetail/OrderDetailModel";
+import { motion } from "framer-motion";
+import { Link } from 'react-router-dom';
+import { IoEyeOutline } from 'react-icons/io5';
+import { GoArrowRight } from "react-icons/go";
 
-const OrderDetail = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedProduct, setSelectedProduct] = useState(null);
-  const newProduct = Product.filter((product) => product?.tag === "new");
+const OrderView = () => {
+     const [isModalOpen, setIsModalOpen] = useState(false);
+     const [selectedProduct, setSelectedProduct] = useState(null);
+     const newProduct = Product.filter((product) => product?.tag === "new").slice(0,3);
 
-  // Handle closing the modal
+       // Handle closing the modal
   const handleCloseModal = () => {
-    setIsModalOpen(false);
-    setSelectedProduct(null); // Clear selected product
-  };
-
-  // Handle preview button click
-  const handlePreviewClick = (product) => {
-    setSelectedProduct(product); // Set selected product data
-    setIsModalOpen(true); // Open modal
-  };
-
+     setIsModalOpen(false);
+     setSelectedProduct(null); // Clear selected product
+   };
+ 
+   // Handle preview button click
+   const handlePreviewClick = (product) => {
+     setSelectedProduct(product); // Set selected product data
+     setIsModalOpen(true); // Open modal
+   };
+     
   return (
     <>
-      <SubMenu />
-      <div className="container mt-16 md:border border-gray-200 md:shadow rounded-lg p-4 md:p-8">
-        <h2 className="text-3xl font-bold mb-8 uppercase">My Orders</h2>
-
-        <div className="container">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-5">
+     <div className='p-6 border border-black rounded-xl'>
+          <div className='flex border-b border-gray-300 pb-3 mb-5 justify-between'>
+          <h2 className='text-xl uppercase font-semibold '>View Order</h2>
+          <button className='flex items-center gap-1'>View All <GoArrowRight /></button>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-5">
             {newProduct.map((product, index) => (
               <motion.div
                 key={index}
@@ -108,10 +108,9 @@ const OrderDetail = () => {
             onClose={handleCloseModal}
             product={selectedProduct}
           />
-        </div>
-      </div>
+     </div>
     </>
-  );
-};
+  )
+}
 
-export default OrderDetail;
+export default OrderView

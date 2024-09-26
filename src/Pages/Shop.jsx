@@ -54,7 +54,8 @@ const Shop = () => {
               animate="rest"
             >
               <div className="relative">
-                <img
+                <motion.img
+                onClick="hover"
                   src={
                     Array.isArray(product.image)
                       ? product.image[0]
@@ -102,7 +103,7 @@ const Shop = () => {
               >
                 <motion.button
                   onClick={() => handleAddToWishlist(product)} 
-                  className="bg-white rounded p-2 font-semibold"
+                  className="bg-white rounded p-2 font-semibold hidden md:block"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ duration: 0.3 }}
@@ -112,14 +113,17 @@ const Shop = () => {
 
                 <motion.button
                   onClick={() => handlePreviewClick(product)} 
-                  className="bg-white rounded p-2 font-semibold mt-1" 
+                  className="bg-white rounded p-2 font-semibold mt-1 hidden md:block" 
                   initial={{ opacity: 0, scale: 0 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.5, delay: 0.5 }}
-                >
+                  transition={{ duration: 0.5, delay: 0.5 }}>
                   <IoEyeOutline />
                 </motion.button>
+
+                
               </motion.div>
+                <motion.button onClick={() => handleAddToWishlist(product)} className="absolute top-1 right-2 bg-white rounded p-2 font-semibold mt-1 md:hidden"><IoIosHeartEmpty /></motion.button>
+                <motion.button onClick={() => handlePreviewClick(product)}  className="absolute top-11 right-2 bg-white rounded p-2 font-semibold mt-1 md:hidden"><IoEyeOutline /></motion.button>
               </div>
             </motion.div>
           ))}

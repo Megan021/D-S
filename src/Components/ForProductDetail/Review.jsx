@@ -8,7 +8,7 @@ const Review = () => {
   return (
     <>
      <div className='container px-4 md:px-0'>
-          <h2 className='font-medium text-center  text-xl mb-5 uppercase'>Review</h2>
+          <h2 className='font-medium text-center text-xl mb-5 uppercase'>Review</h2>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 justify-between gap-5">
             <div className="border border-gray-300 rounded shadow p-5">
@@ -29,9 +29,9 @@ const Review = () => {
                   <Rating
                     name="simple-controlled"
                     value={value}
-                    onChange={(event, newValue) => {
-                      setValue(newValue);
-                    }}
+                    // onChange={(event, newValue) => {
+                    //   setValue(newValue);
+                    // }}
                   />
                 </div>
               </div>
@@ -63,9 +63,9 @@ const Review = () => {
                   <Rating
                     name="simple-controlled"
                     value={value}
-                    onChange={(event, newValue) => {
-                      setValue(newValue);
-                    }}
+                    // onChange={(event, newValue) => {
+                    //   setValue(newValue);
+                    // }}
                   />
                 </div>
               </div>
@@ -97,9 +97,9 @@ const Review = () => {
                   <Rating
                     name="simple-controlled"
                     value={value}
-                    onChange={(event, newValue) => {
-                      setValue(newValue);
-                    }}
+                    // onChange={(event, newValue) => {
+                    //   setValue(newValue);
+                    // }}
                   />
                 </div>
               </div>

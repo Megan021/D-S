@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { FiShoppingBag, FiUser, FiHeart } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import { HiOutlineMenuAlt3 } from "react-icons/hi";
@@ -14,6 +14,7 @@ import MegaMenu from "./ForMegaMenu/MegaMenu";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const menuRef = useRef(null);
 
   // Get cart count from CartContext
   const { cartCount } = useContext(CartContext);
@@ -23,6 +24,38 @@ const Navbar = () => {
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
+
+
+  // Close the menu when clicking outside of it
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
+        setIsMenuOpen(false);
+      }
+    };
+    if (isMenuOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    } else {
+      document.removeEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isMenuOpen]);
+
+  // Disable background scroll when the menu is open
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [isMenuOpen]);
 
   return (
     <>
@@ -96,20 +129,21 @@ const Navbar = () => {
               <AnimatePresence>
                 {isMenuOpen && (
                   <motion.div
+                    ref={menuRef}
                     initial={{ x: "100%" }}
                     animate={{ x: 0 }}
                     exit={{ x: "100%" }}
                     transition={{ type: "tween", duration: 0.2 }}
-                    className="fixed top-0 right-0 w-full h-full bg-white z-50"
+                    className="fixed top-0 right-0 w-[60%] h-full bg-black z-50 bg-opacity-60 backdrop-blur-md text-white"
                   >
-                    <div className="flex justify-between items-center p-5 border-b">
-                      <h2 className="text-2xl font-bold">D&S</h2>
-                      {/* Close menu button */}
+                    <div className="flex justify-between items-center px-4 p-[26px] border-b shadow">
+                      {/* <h2 className="text-2xl font-bold">D&S</h2> */}
+                      <div></div>
                       <button onClick={toggleMenu} className="text-xl">
                         <RiCloseLargeLine />
                       </button>
                     </div>
-                    <ul className="p-6 leading-8">
+                    <ul className="p-6 leading-8 text-base">
                       <Link to="/" onClick={toggleMenu}>
                         <li className="py-2 flex items-center gap-2"><TfiHome />Home</li>
                       </Link>
