@@ -18,7 +18,6 @@ const ScrollDescription = ({ product, handleAddToCart }) => {
         setIsVisible(false);
       }
     };
-    
 
     window.addEventListener("scroll", handleScroll);
 
