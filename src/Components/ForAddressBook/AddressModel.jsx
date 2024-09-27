@@ -32,7 +32,7 @@ const AddressModel = ({ isOpen, toggleEditAddress }) => {
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.3 }} 
-        className='bg-white p-6 rounded-lg shadow-lg w-full max-w-screen-md relative' ref={modalRef}>
+        className='bg-white text-black p-6 rounded-lg shadow-lg w-full max-w-screen-md relative' ref={modalRef}>
         <h2 className='text-2xl font-bold mb-6'>Edit Your Details</h2>
         <form>
           <div className='mb-5'>
@@ -87,4 +87,4 @@ const AddressModel = ({ isOpen, toggleEditAddress }) => {
   )
 }
 
-export default AddressModel
+export default AddressModel;

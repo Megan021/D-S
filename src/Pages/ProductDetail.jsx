@@ -12,6 +12,7 @@ import { toast } from 'react-hot-toast';
 import { AnimatePresence, motion } from "framer-motion";
 
 import ShippingReturn from "../Components/ForProductDetail/ShippingReturn";
+import ScrollDescription from "../Components/ForProductDetail/ScrollDescription";
 
 const ProductDetail = () => {
   const { id } = useParams(); 
@@ -249,6 +250,7 @@ const ProductDetail = () => {
         </div>
       </div>
 
+      <ScrollDescription product={product} handleAddToCart={handleAddToCart} />        
       <Review />
       <Recomended />
     </>

@@ -38,10 +38,11 @@ const OrderDetailModel = ({ isOpen, onClose, product }) => {
         >
           <div className="flex justify-between items-center w-full border-b pb-4">
             <div>
-              <h2>Order Id: #1245HSK</h2>
+              <h2><span className="font-medium">Order Id:</span> #1245HSK</h2>
+              <h2 className="md:hidden"><span className="font-medium">Estimated arrival:</span> 2024/05/15</h2>
             </div>
-            <div>
-              <h2>Estimated arrival: September 28, 2024</h2>
+            <div className="hidden md:block">
+              <h2><span>Estimated arrival:</span> September 28, 2024</h2>
             </div>
             <div>
               <button className="p-1 px-3 rounded-xl bg-orange-100 text-orange-600 font-semibold flex items-center">
@@ -66,11 +67,11 @@ const OrderDetailModel = ({ isOpen, onClose, product }) => {
                   <p className="font-semibold">Rs. {product?.price}</p>
                   <p className="font-semibold">{product?.size[0]}</p>
                   <p className="absolute right-3 flex gap-3 items-center bottom-3">
-                    Cash on Delivery
+                    <span className="hidden md:block">Cash on Delivery</span>
                     <img
                       src="/images/orderDetail/cashondelivery.png"
                       alt="cash on delivery"
-                      className="w-8"
+                      className="w-6 md:w-8"
                     />
                   </p>
                 </div>
@@ -90,11 +91,11 @@ const OrderDetailModel = ({ isOpen, onClose, product }) => {
                   <p className="font-semibold">Rs. {product?.price}</p>
                   <p className="font-semibold">{product?.size[0]}</p>
                   <p className="absolute right-3 flex gap-3 items-center bottom-3">
-                    Cash on Delivery
+                  <span className="hidden md:block">Cash on Delivery</span>
                     <img
                       src="/images/orderDetail/cashondelivery.png"
                       alt="cash on delivery"
-                      className="w-8"
+                      className="w-6 md:w-8"
                     />
                   </p>
                 </div>

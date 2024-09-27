@@ -6,8 +6,9 @@ import { BsArrowRight } from "react-icons/bs";
 import { CiHeart } from "react-icons/ci";
 import { Link } from "react-router-dom";
 import { GoArrowRight } from "react-icons/go";
-import AddressModel from "../../Components/ForMyAccount/AddressModel";
+import AddressModel from "../../Components/ForMyAccount/AddressBookDashboard";
 import OrderView from "../../Components/ForMyAccount/OrderView";
+import { IoLogOutOutline } from "react-icons/io5";
 
 const MyAccount = () => {
   return (
@@ -18,12 +19,13 @@ const MyAccount = () => {
           <img src="/images/dashboard/welcomeUser.jpg" alt="" className='w-[80%] md:w-[30%] mx-auto' />
           <p className='md:w-[65%] mx-auto'>From your account dashboard you can view your recent orders, manage your shipping and billing address, and edit your account details. Please navigate through submenu above.</p>
      </div> */}
+<div className="container py-5 md:py-7 flex justify-end px-4 md:px-0">
+  <button className="flex items-center gap-1 p-2 px-4 rounded-full border border-black">Logout <IoLogOutOutline className="text-xl" /></button>
+</div>
+      <div className="container px-4 md:px-0">
+        <div className="md:flex gap-5 mb-5">
 
-      <div className="container mt-16">
-
-        <div className="flex gap-5 mb-5">
-
-          <div className="flex-1">
+          <div className="flex-1 mb-5 md:mb-0">
             <Link to="/user-info">
               <div className="border-black flex gap-4 border bg-black text-white p-7 rounded-xl h-full relative group">
                 <div>
@@ -47,7 +49,7 @@ const MyAccount = () => {
 
           <div className="flex-1">
             <div className="flex gap-5 h-full">
-              <div className="border border-black  hover:bg-black hover:text-white duration-200 rounded-xl text-center p-6 flex-1 relative">
+              <div className="border border-black  hover:bg-black hover:text-white duration-200 rounded-xl text-center p-4 md:p-6 flex-1 relative">
                 <Link to="/wishlist">
                   <i>
                     <CiHeart className="text-4xl mx-auto" />
@@ -60,7 +62,7 @@ const MyAccount = () => {
                 </Link>
               </div>
 
-              <div className="border border-black  hover:bg-black hover:text-white duration-200 rounded-xl text-center p-6 flex-1 relative">
+              <div className="border border-black  hover:bg-black hover:text-white duration-200 rounded-xl text-center p-4 md:p-6 flex-1 relative">
                 <Link to="/cart">
                   <i>
                     <FiShoppingBag className="stroke-1 text-4xl mx-auto" />
@@ -77,13 +79,13 @@ const MyAccount = () => {
 
         </div>
 
-        <div className="flex gap-5">
+        <div className="md:flex gap-5">
 
-          <div className="w-[60%]">
+          <div className="md:w-[60%] mb-5 md:mb-0">
             <OrderView />
           </div>
 
-          <div className="w-[40%]">
+          <div className="md:w-[40%]">
             <AddressModel />
           </div>
 
