@@ -54,6 +54,7 @@ const Shop = () => {
               animate="rest"
             >
               <div className="relative">
+                <Link to={`/product-detail/${product?.id}`}>
                 <motion.img
                 onClick="hover"
                   src={
@@ -65,7 +66,6 @@ const Shop = () => {
                   className="aspect-[3/3] object-cover rounded-lg"
                 />
 
-                <Link to={`/product-detail/${product?.id}`}>
                   <div className="p-1 pt-3">
                     <p className="leading-5 pb-1">{product?.name}</p>
                     <div className="flex gap-4">

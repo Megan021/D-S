@@ -1,117 +1,24 @@
-import React, { useState } from 'react'
-import { LuUserCircle } from "react-icons/lu";
-import Rating from "@mui/material/Rating";
+import { BsArrowRight } from "react-icons/bs";
+import { Link } from 'react-router-dom';
+import ReviewComp from '../ForReview/ReviewComp';
 
-const Review = () => {
-     const [value, setValue] = useState(4);
+const Review = ({product}) => {
+const review = [1,1,1];
 
   return (
     <>
      <div className='container px-4 md:px-0'>
-          <h2 className='font-medium text-center text-xl mb-5 uppercase'>Review</h2>
+      <div className='mb-10 flex justify-between border-b border-gray-300 pb-2'>
+          <h2 className='font-medium text-xl uppercase'>Review</h2>
+          <Link to={`/review-page/${product?.id}`}>
+          <button className='flex items-center gap-1 group'>View All <BsArrowRight className='group-hover:-rotate-45 duration-200' /></button>
+          </Link>
+      </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 justify-between gap-5">
-            <div className="border border-gray-300 rounded shadow p-5">
-              <div className="flex items-center justify-between">
-                <div className="flex gap-3 items-center mb-5">
-                  <div>
-                    <i>
-                      <LuUserCircle className="size-10 stroke-1" />
-                    </i>
-                  </div>
-                  <div className="leading-3">
-                    <h3 className="text-xl font-medium">John Deo</h3>
-                    <p>7 Aug, 2024</p>
-                  </div>
-                </div>
-
-                <div>
-                  <Rating
-                    name="simple-controlled"
-                    value={value}
-                    // onChange={(event, newValue) => {
-                    //   setValue(newValue);
-                    // }}
-                  />
-                </div>
-              </div>
-
-              <div>
-                <p>
-                  Lorem ipsum dolor sit amet, pornstar nun adipisicing elit.
-                  Culpa minus ut asperiores a veniam quaerat, doloribus
-                  architecto consequatur molestias aperiam.
-                </p>
-              </div>
-            </div>
-            <div className="border border-gray-300 rounded shadow p-5">
-              <div className="flex items-center justify-between">
-                <div className="flex gap-3 items-center mb-5">
-                  <div>
-                    <i>
-                      <LuUserCircle className="size-10 stroke-1" />
-                    </i>
-                  </div>
-                  <div className="leading-3">
-                    <h3 className="text-xl font-medium">John Deo</h3>
-                    <p>7 Aug, 2024</p>
-                  </div>
-                </div>
-
-                <div>
-                  {" "}
-                  <Rating
-                    name="simple-controlled"
-                    value={value}
-                    // onChange={(event, newValue) => {
-                    //   setValue(newValue);
-                    // }}
-                  />
-                </div>
-              </div>
-
-              <div>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Culpa minus ut asperiores a veniam quaerat, doloribus
-                  architecto consequatur molestias aperiam.
-                </p>
-              </div>
-            </div>
-            <div className="border border-gray-300 rounded shadow p-5">
-              <div className="flex items-center justify-between">
-                <div className="flex gap-3 items-center mb-5">
-                  <div>
-                    <i>
-                      <LuUserCircle className="size-10 stroke-1" />
-                    </i>
-                  </div>
-                  <div className="leading-3">
-                    <h3 className="text-xl font-medium">John Deo</h3>
-                    <p>7 Aug, 2024</p>
-                  </div>
-                </div>
-
-                <div>
-                  {" "}
-                  <Rating
-                    name="simple-controlled"
-                    value={value}
-                    // onChange={(event, newValue) => {
-                    //   setValue(newValue);
-                    // }}
-                  />
-                </div>
-              </div>
-
-              <div>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Culpa minus ut asperiores a veniam quaerat, doloribus
-                  architecto consequatur molestias aperiam.
-                </p>
-              </div>
-            </div>
+            {review.map(() => (
+              <ReviewComp />
+            ))}
           </div>
      </div>
     </>

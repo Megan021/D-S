@@ -46,6 +46,15 @@ const SubMenu = () => {
               Wishlist
             </button>
           </Link>
+          <Link to="/review">
+          <button
+              className={`p-1 px-4 bg-gray-100 hover:bg-gray-300 duration-200 rounded-xl ${
+                location.pathname === "/review" ? "bg-gray-500 text-white" : ""
+              }`}
+            >
+              Review
+            </button>
+          </Link>
           <Link to="/" className='md:hidden absolute bottom-1 right-5'>
           <button className='flex items-center gap-1'>
               Logout <IoLogOutOutline className='text-xl' />

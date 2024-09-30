@@ -12,7 +12,7 @@ const ScrollDescription = ({ product, handleAddToCart }) => {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 400) {
+      if (window.scrollY > 600) {
         setIsVisible(true);
       } else {
         setIsVisible(false);
@@ -35,11 +35,11 @@ const ScrollDescription = ({ product, handleAddToCart }) => {
           } fixed w-[92%] md:w-[81%] border border-gray-400 shadow flex items-center justify-between bg-white bottom-7 rounded-xl transition-opacity duration-300`}
         >
           <div className="flex items-center gap-3">
-            <div className="w-32">
+            <div className="">
               <img
                 src={product?.image[0]}
                 alt={product?.name}
-                className="w-full object-cover rounded-l-xl"
+                className="size-32 object-cover rounded-l-xl"
               />
             </div>
             <div>
@@ -78,9 +78,7 @@ const ScrollDescription = ({ product, handleAddToCart }) => {
             </button>
             <button
               onClick={handleAddToCart}
-              className="p-2 px-8 bg-black text-white rounded hidden md:block"
-            >
-              Add to cart
+              className="p-2 px-8 bg-black text-white rounded hidden md:block">Add to cart
             </button>
           </div>
         </div>

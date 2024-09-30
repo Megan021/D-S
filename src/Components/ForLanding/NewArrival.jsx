@@ -57,6 +57,7 @@ const NewArrival = () => {
               whileHover="hover"
               animate="rest"
             >
+              <Link to={`/product-detail/${product?.id}`}>
               <img
                 src={
                   Array.isArray(product.image)
@@ -66,7 +67,6 @@ const NewArrival = () => {
                 alt={product?.name}
                 className="aspect-[3/3] object-cover rounded-lg"
               />
-              <Link to={`/product-detail/${product?.id}`}>
                 <div className="p-1 pt-3">
                   <p className="leading-5 pb-1">{product?.name}</p>
                   <div className="flex gap-4">

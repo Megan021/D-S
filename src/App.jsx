@@ -23,6 +23,8 @@ import UserInfo from "./Pages/Dashboard/UserInfo";
 import AddressBook from "./Pages/Dashboard/AddressBook";
 import OrderDetail from "./Pages/Dashboard/OrderDetail";
 import { OrderProvider } from "./Context/OrderContext";
+import ReviewPage from "./Pages/ReviewPage";
+import Review from "./Pages/Dashboard/Review";
 
 function App() {
   return (
@@ -51,6 +53,8 @@ function App() {
               <Route path="/user-info" element={<UserInfo />} />
               <Route path="/user-address" element={<AddressBook />} />
               <Route path="/order-detail" element={<OrderDetail />} />
+              <Route path="/review-page/:id" element={<ReviewPage />} />
+              <Route path="/review" element={<Review />} />
             </Routes>
             <Footer />
             <Toaster position="top-center" reverseOrder={false} />

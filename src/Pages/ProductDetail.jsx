@@ -10,7 +10,6 @@ import Review from "../Components/ForProductDetail/Review";
 import Recomended from "../Components/ForProductDetail/Recomended";
 import { toast } from 'react-hot-toast';
 import { AnimatePresence, motion } from "framer-motion";
-
 import ShippingReturn from "../Components/ForProductDetail/ShippingReturn";
 import ScrollDescription from "../Components/ForProductDetail/ScrollDescription";
 
@@ -226,8 +225,6 @@ const ProductDetail = () => {
               )}
             </AnimatePresence>
 
-            
-
             <div onClick={toggleShippingVisibility} className="flex border-b border-gray-300 pb-2 justify-between mt-5">
               <button  className="flex items-center uppercase text-sm font-semibold gap-2">
                 <img src="/images/productDetail/shipping.svg" className="size-6 ml-1" />
@@ -251,7 +248,7 @@ const ProductDetail = () => {
       </div>
 
       <ScrollDescription product={product} handleAddToCart={handleAddToCart} />        
-      <Review />
+      <Review product={product} />
       <Recomended />
     </>
   );

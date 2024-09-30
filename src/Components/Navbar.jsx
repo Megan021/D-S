@@ -11,10 +11,13 @@ import { PiStorefrontLight } from "react-icons/pi";
 import { IoInformationCircleOutline } from "react-icons/io5";
 import { IoCallOutline } from "react-icons/io5";
 import MegaMenu from "./ForMegaMenu/MegaMenu";
+import { IoSearchOutline } from "react-icons/io5";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
   const menuRef = useRef(null);
+  const searchRef = useRef(null);
 
   // Get cart count from CartContext
   const { cartCount } = useContext(CartContext);
@@ -25,6 +28,10 @@ const Navbar = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  const toggleSearch = () => {
+    setIsSearchOpen(!isSearchOpen);
+  };
+
 
   // Close the menu when clicking outside of it
   useEffect(() => {
@@ -32,8 +39,11 @@ const Navbar = () => {
       if (menuRef.current && !menuRef.current.contains(event.target)) {
         setIsMenuOpen(false);
       }
+      if (searchRef.current && !searchRef.current.contains(event.target)) {
+        setIsSearchOpen(false);
+      }
     };
-    if (isMenuOpen) {
+     if (isMenuOpen || isSearchOpen) {
       document.addEventListener("mousedown", handleClickOutside);
     } else {
       document.removeEventListener("mousedown", handleClickOutside);
@@ -42,7 +52,7 @@ const Navbar = () => {
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, [isMenuOpen]);
+  }, [isMenuOpen, isSearchOpen]);
 
   // Disable background scroll when the menu is open
   useEffect(() => {
@@ -72,12 +82,35 @@ const Navbar = () => {
           </div>
 
           <div>
-            <ul className="flex gap-5 text-xl">
+            <ul className="flex gap-5 text-xl relative">
+              <li onClick={toggleSearch} className="cursor-pointer ">
+              <IoSearchOutline />
+              </li>
+              <AnimatePresence>
+                {isSearchOpen && (
+                  <motion.div
+                    ref={searchRef}
+                    initial={{ opacity: 0, y: "-50%" }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: "-50%" }}
+                    transition={{ type: "tween", duration: 0.3 }}
+                    className="absolute top-12 right-28 bg-white shadow p-1 z-50 text-base flex gap-2"
+                  >
+                    <input
+                      type="text"
+                      placeholder=""
+                      className="p-1 w-96 border border-gray-300 focus:outline-none"
+                    />
+                    <button onClick={toggleSearch} className="bg-black px-4 text-white">Search</button>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+              
               <Link to="/wishlist">
                 <li className="relative">
                   <FiHeart />
                   {wishlistCount > 0 && (
-                    <span className="absolute top-[-8px] right-[-8px] bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
+                    <span className="absolute top-[-11px] right-[-11px] bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
                       {wishlistCount}
                     </span>
                   )}
@@ -88,7 +121,7 @@ const Navbar = () => {
                 <li className="relative">
                   <FiShoppingBag />
                   {cartCount > 0 && (
-                    <span className="absolute top-[-8px] right-[-8px] bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
+                    <span className="absolute top-[-11px] right-[-11px] bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
                       {cartCount}
                     </span>
                   )}
