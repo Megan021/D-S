@@ -67,4 +67,4 @@ const UserDetailModel = ({ isOpen, toggleEditUserDetail }) => {
   )
 }
 
-export default UserDetailModel
+export default UserDetailModel;

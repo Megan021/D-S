@@ -55,8 +55,8 @@ const SubMenu = () => {
               Review
             </button>
           </Link>
-          <Link to="/" className='md:hidden absolute bottom-1 right-5'>
-          <button className='flex items-center gap-1'>
+          <Link to="/" className='md:hidden'>
+          <button className='flex items-center gap-1 p-2'>
               Logout <IoLogOutOutline className='text-xl' />
             </button>
           </Link>

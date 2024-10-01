@@ -30,7 +30,7 @@ const OrderDetail = () => {
         <h2 className="text-3xl font-bold mb-8 uppercase">My Orders</h2>
 
         <div className="container">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-5">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 gap-y-8 md:gap-5">
             {newProduct.map((product, index) => (
               <motion.div
                 key={index}
