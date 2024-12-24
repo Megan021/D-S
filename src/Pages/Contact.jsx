@@ -11,7 +11,7 @@ const Contact = () => {
             height="100%"
             style={{ border: 0, outline: "none", filter: "grayscale(1) contrast(1) opacity(2)" }}
             allowfullscreen=""
-            loading="lazy"
+            loading="lazy" 
           ></iframe>
         </div>
 

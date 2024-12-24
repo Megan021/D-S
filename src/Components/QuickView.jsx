@@ -13,7 +13,7 @@ const QuickView = ({ isOpen, onClose, product }) => {
      // Close modal if clicked outside of the modal content
      const handleOutsideClick = (e) => {
           if (e.target.id === "modal-overlay") {
-               onClose(); // Close the modal
+               onClose();
           }
      };
 

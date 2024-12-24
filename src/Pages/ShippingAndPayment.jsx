@@ -3,6 +3,7 @@ import { CartContext } from "../Context/CartContext";
 import ShippingComp from "../Components/ForShipping/ShippingComp";
 import PaymentInfo from "../Components/ForShipping/PaymentInfo";
 import { Link } from "react-router-dom";
+import RegisterShipping from "../Components/ForShipping/RegisterShipping";
 
 const ShippingAndPayment = () => {
   // Get cart count from CartContext
@@ -21,6 +22,7 @@ const ShippingAndPayment = () => {
     <>
       <div className="container mt-14 gap-14 md:flex px-4 md:px-0">
         <div className="md:w-[60%]">
+          <RegisterShipping />
           <ShippingComp />
           <div className="mt-8">
             <h2 className="font-semibold text-xl mb-5">Payment Info</h2>
