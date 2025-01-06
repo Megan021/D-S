@@ -29,6 +29,23 @@ const ProductDetail = () => {
     const [quantity, setQuantity] = useState(1); // Quantity state
     const [isShippingVisible, setIsShippingVisible] = useState(true);
     const [isDescVisible, setIsDescVisible] = useState(false);
+    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+    // const [quantity, setQuantity] = useState(1);
+  
+    // Array for dropdown options
+    const options = Array.from({ length: 15 }, (_, i) => i + 1);
+  
+    const handleInputChange = (e) => {
+      const value = Number(e.target.value);
+      if (!isNaN(value) && value >= 1) {
+        setQuantity(value);
+      }
+    };
+  
+    const handleOptionSelect = (value) => {
+      setQuantity(value);
+      setIsDropdownOpen(false); // Close dropdown after selection
+    };
 
   if (!product) {
     return (
@@ -175,9 +192,49 @@ const ProductDetail = () => {
           </div>
 
           <div className="flex gap-2 pb-2">
-            <button className="p-2 border border-black w-24 items-center flex justify-between">
-              Qty: 1 <GoChevronDown />
-            </button>
+          <div className="relative w-24">
+      {/* Input with Dropdown Toggle */}
+      <div className="flex items-center border border-black p-2">Qty: 
+        <input
+          type="number"
+          className="w-10 text-center outline-none"
+          value={quantity}
+          onChange={handleInputChange}
+          onFocus={() => setIsDropdownOpen(false)}
+          style={{
+            appearance: "textfield", // Hide in Firefox
+          }} // Close dropdown when focusing on input
+        />
+        <button
+          className="ml-auto"
+          onClick={(e) => {
+            e.preventDefault();
+            setIsDropdownOpen((prev) => !prev); // Toggle dropdown
+          }}
+        >
+          <GoChevronDown />
+        </button>
+      </div>
+
+      {/* Dropdown */}
+      {isDropdownOpen && (
+        <ul
+          className="absolute z-10 mt-1 w-full border border-gray-300 bg-white rounded-md shadow-lg max-h-[10vh] overflow-y-auto"
+        >
+          {options.map((option) => (
+            <li
+              key={option}
+              className={`p-2 cursor-pointer hover:bg-gray-200 ${
+                quantity === option ? "bg-gray-100 font-bold" : ""
+              }`}
+              onClick={() => handleOptionSelect(option)}
+            >
+              {option}
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
             <button onClick={handleAddToCart} className="p-2 border border-black bg-black text-white font-medium w-full capitalize">
               add to cart
             </button>
