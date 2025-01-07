@@ -83,9 +83,9 @@ const Navbar = () => {
 
           <div>
             <ul className="flex gap-5 text-xl relative">
-              <li onClick={toggleSearch} className="cursor-pointer ">
+              <button onClick={toggleSearch} className="cursor-pointer ">
               <IoSearchOutline />
-              </li>
+              </button>
               <AnimatePresence>
                 {isSearchOpen && (
                   <motion.div
@@ -94,14 +94,14 @@ const Navbar = () => {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: "-50%" }}
                     transition={{ type: "tween", duration: 0.3 }}
-                    className="absolute top-12 right-28 bg-white shadow p-1 z-50 text-base flex gap-2"
+                    className="absolute top-12 right-28 bg-white bg-opacity-70 backdrop-blur-sm rounded-full shadow p-1 z-50 text-base flex gap-2"
                   >
                     <input
                       type="text"
-                      placeholder=""
-                      className="p-1 w-96 border border-gray-300 focus:outline-none"
+                      placeholder="Search Product here..."
+                      className="p-1 pl-3 w-72  bg-transparent focus:outline-none rounded-full placeholder:text-black"
                     />
-                    <button onClick={toggleSearch} className="bg-black px-4 text-white">Search</button>
+                    <button onClick={toggleSearch} className="bg-black px-6 text-white rounded-full">Search</button>
                   </motion.div>
                 )}
               </AnimatePresence>

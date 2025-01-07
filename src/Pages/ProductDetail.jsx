@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useRef, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import Product from "../Data/Product.json";
 import { GoChevronDown } from "react-icons/go";
@@ -31,6 +31,21 @@ const ProductDetail = () => {
     const [isDescVisible, setIsDescVisible] = useState(false);
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     // const [quantity, setQuantity] = useState(1);
+    
+    const dropdownRef = useRef(null);
+
+    useEffect(() => {
+      const handleClickOutside = (event) => {
+        if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+          setIsDropdownOpen(false);
+        }
+      };
+  
+      document.addEventListener("mousedown", handleClickOutside);
+      return () => {
+        document.removeEventListener("mousedown", handleClickOutside);
+      };
+    }, []);
   
     // Array for dropdown options
     const options = Array.from({ length: 15 }, (_, i) => i + 1);
@@ -192,7 +207,7 @@ const ProductDetail = () => {
           </div>
 
           <div className="flex gap-2 pb-2">
-          <div className="relative w-24">
+          <div className="relative w-24" ref={dropdownRef}>
       {/* Input with Dropdown Toggle */}
       <div className="flex items-center border border-black p-2">Qty: 
         <input
