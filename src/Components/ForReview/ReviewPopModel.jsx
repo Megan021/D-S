@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { Button, Modal, Rating, TextField } from "@mui/material";
 import { MdOutlineClose } from "react-icons/md";
+import MultipleImage from "../../resuable/MultipleImage";
 
 const ReviewPopModal = ({ open, handleClose, product }) => {
   const [rating, setRating] = useState(0);
+  const [image, setImage] = useState([]);
   const [reviewText, setReviewText] = useState("");
   const [uploadedImage, setUploadedImage] = useState(null);
 
@@ -17,10 +19,9 @@ const ReviewPopModal = ({ open, handleClose, product }) => {
     handleClose();
   };
 
-
   return (
     <Modal open={open} onClose={handleClose} className="px-4 md:px-0">
-      <div className="p-4 bg-white rounded-md shadow-lg mx-auto mt-20 md:max-w-md relative">
+      <div className="p-4 bg-white rounded-md shadow-lg mx-auto mt-8 md:max-w-md relative">
         <h2 className="border-b pb-1 mb-4">Write Review</h2>
         <div className="flex gap-1 border rounded border-gray-300 relative">
           <div>
@@ -47,21 +48,20 @@ const ReviewPopModal = ({ open, handleClose, product }) => {
               />
             </div>
           </div>
-
         </div>
-          <div className="flex my-3 md:hidden">
-            <div>
-              <p>Overall Rating: </p>
-            </div>
-            <div>
-              <Rating
-                name="product-rating"
-                value={rating}
-                onChange={(event, newValue) => setRating(newValue)}
-                className="mb-4"
-              />
-            </div>
+        <div className="flex my-3 md:hidden">
+          <div>
+            <p>Overall Rating: </p>
           </div>
+          <div>
+            <Rating
+              name="product-rating"
+              value={rating}
+              onChange={(event, newValue) => setRating(newValue)}
+              className="mb-4"
+            />
+          </div>
+        </div>
 
         <div className="mt-5">
           <TextField
@@ -76,16 +76,21 @@ const ReviewPopModal = ({ open, handleClose, product }) => {
         </div>
 
         <div className="mt-4">
-        <Button variant="contained" color="info" component="label" className="w-full">
-          Upload Image
-          <input type="file" hidden onChange={handleImageUpload} />
-        </Button>
-        <button onClick={handleSubmit} className="p-2 w-full border border-black  rounded mt-3">
-          Submit
-        </button>
+          <MultipleImage image={image} setImage={setImage} imageNum={3} />
+          <button
+            onClick={handleSubmit}
+            className="p-2 w-full bg-black text-white  rounded-lg mt-3"
+          >
+            Submit
+          </button>
         </div>
 
-        <button onClick={handleClose} className="p-1 text-lg rounded-full bg-white absolute -top-3 -right-3 border border-black"><MdOutlineClose /></button>
+        <button
+          onClick={handleClose}
+          className="p-1 text-lg rounded-full bg-white absolute -top-3 -right-3 border border-black"
+        >
+          <MdOutlineClose />
+        </button>
         {/* <h2 variant="h6" className="mb-4">
           Review for {product?.name}
         </h2>

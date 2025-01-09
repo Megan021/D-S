@@ -25,9 +25,20 @@ const MenuNewTrending = forwardRef((props, ref) => {
                        <li className='hover:underline'>Shirt</li>
                   </ul>
              </div>
+             <div>
+                  <h2 className='text-lg font-medium mb-4'>Trending</h2>
+                  <ul className='leading-8'>
+                       <li className='hover:underline'>Sneakers</li>
+                       <li className='hover:underline'>T-Shirt</li>
+                       <li className='hover:underline'>Coat</li>
+                       <li className='hover:underline'>Hoodies</li>
+                       <li className='hover:underline'>Shirt</li>
+                  </ul>
+             </div>
+
    
-             <div className='relative'>
-                  <img src="/images/megamenu/imagesale2.jpg" alt="new and trending clothing" className="w-44" />
+             <div className='relative w-[30vh]'>
+                  <img src="/images/megamenu/imagesale2.jpg" alt="new and trending clothing" className="w-full" />
                   <button className='absolute bottom-3 left-3 bg-black text-white text-sm rounded p-1 px-2'>Shop Now</button>
              </div>
         </div>

@@ -35,7 +35,7 @@ const MenuShop = forwardRef((props, ref) => {
                   </ul>
              </div>
    
-             <div className='w-[40%] relative'>
+             <div className='w-[30vh] relative'>
                   <img src="/images/megamenu/image1.jpg" alt="" className='' />
                {/* <button className='absolute bottom-3 left-5 bg-white bg-opacity-40 hover:bg-opacity-50 px-2 flex items-center gap-1'>Shop <GoArrowUpRight /></button> */}
                <button className='absolute top-3 left-3 bg-black text-white text-sm rounded p-1 px-2'>Shop</button>

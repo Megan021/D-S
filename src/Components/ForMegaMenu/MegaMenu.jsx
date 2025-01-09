@@ -60,7 +60,7 @@ const MegaMenu = () => {
             style={{
               left: popoverLeft || 0,
             }}
-            className="absolute top-6 pt-6 -ml-24 w-[650px] bg-white overflow-hidden shadow border-b border-gray-200 transform-gpu rounded-b transition-all duration-500 z-10"
+            className="absolute top-6 pt-6 -ml-48 max-w-[800px] bg-white overflow-hidden shadow border-b border-gray-200 transform-gpu rounded-b transition-all duration-500 z-10"
           >
             {hovering === 2 ? (
               <MenuSale />
