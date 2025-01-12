@@ -30,6 +30,22 @@ input[type="number"] {
   -moz-appearance: textfield;
 }
 
+/* Custom scrollbar styles */
+.custom-scrollbar::-webkit-scrollbar {
+  height: 5px; /* Width of the scrollbar */
+  width: 3.5px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+ @apply bg-gray-500 rounded-full; /* Scrollbar thumb (handle) */
+ @apply hover:opacity-100;
+ @apply opacity-0;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+ @apply bg-gray-100; /* Scrollbar track */
+}
+
 
 /*
 a {

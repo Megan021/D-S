@@ -81,6 +81,7 @@ const Review = () => {
                     <h2 className="font-medium mt-2 line-clamp-2">
                       {product?.name}
                     </h2>
+                    <p className="text-muted text-sm">(red-free)</p>
                     <p className="pt-1">Rs. {product?.price}</p>
                   </div>
                   <button
@@ -116,8 +117,9 @@ const Review = () => {
                   </div>
                   <div className="w-[80%] px-3">
                     <h2 className="font-medium mt-2 line-clamp-2">
-                      {product?.name}
+                      {product?.name} 
                     </h2>
+                    <p className="text-muted text-sm">(red-free)</p>
                     <p className="pt-1">Rs. {product?.price}</p>
                     <p className="py-3">
                       "Lorem, ipsum dolor sit amet consectetur adipisicing elit.

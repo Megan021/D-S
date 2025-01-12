@@ -37,10 +37,10 @@ const MenuNewTrending = forwardRef((props, ref) => {
              </div>
 
    
-             <div className='relative w-[30vh]'>
+             {/* <div className='relative w-[30vh]'>
                   <img src="/images/megamenu/imagesale2.jpg" alt="new and trending clothing" className="w-full" />
                   <button className='absolute bottom-3 left-3 bg-black text-white text-sm rounded p-1 px-2'>Shop Now</button>
-             </div>
+             </div> */}
         </div>
        </>
      )

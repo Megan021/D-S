@@ -25,9 +25,9 @@ const MenuSale = forwardRef((props, ref) => {
                </ul>
           </div>
 
-          <div className='w-[30vh] relative'>
+          {/* <div className='w-[30vh] relative'>
                <img src="/images/megamenu/imagesale.jpeg" alt="" className='border border-gray-200 rounded shadow' />
-          </div>
+          </div> */}
      </div>
     </>
   )
