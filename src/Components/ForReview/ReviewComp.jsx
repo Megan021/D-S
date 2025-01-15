@@ -1,8 +1,41 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Rating from "@mui/material/Rating";
+import Lightbox from "yet-another-react-lightbox";
+import "yet-another-react-lightbox/styles.css";
 
 const ReviewComp = () => {
-     const [value, setValue] = useState(4);
+  const [value, setValue] = useState(4);
+  const [isOpen, setIsOpen] = useState(false);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  const images = [
+    "/images/product/product1.webp",
+    "/images/product/product2.webp",
+    "/images/product/product1.webp",
+  ];
+
+  // Preload images
+  useEffect(() => {
+    images.forEach((src) => {
+      const img = new Image();
+      img.src = src;
+    });
+  }, []);
+
+  const handleImageClick = (index) => {
+    setCurrentImageIndex(index);
+    setIsOpen(true);
+  };
+
+  // const handleNext = () => {
+  //   setCurrentImageIndex((currentImageIndex + 1) % images.length);
+  // };
+
+  // const handlePrev = () => {
+  //   setCurrentImageIndex(
+  //     (currentImageIndex + images.length - 1) % images.length
+  //   );
+  // };
 
   return (
     <>
@@ -35,8 +68,29 @@ const ReviewComp = () => {
             minus ut asperiores a veniam quaerat, doloribus architecto
             consequatur molestias aperiam.
           </p>
+          <div className="flex gap-2 pt-5">
+          {images.map((img, index) => (
+            <img
+              key={index}
+              src={img}
+              alt={`review image ${index}`}
+              className="size-16 cursor-pointer"
+              onClick={() => handleImageClick(index)}
+            />
+          ))}
+        </div>
         </div>
       </div>
+
+      {isOpen && (
+        <Lightbox
+          open={isOpen}
+          close={() => setIsOpen(false)}
+          slides={images.map((src) => ({ src }))}
+          index={currentImageIndex}
+          onIndexChange={setCurrentImageIndex}
+        />
+      )}
     </>
   );
 };

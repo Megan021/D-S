@@ -18,7 +18,7 @@ const MegaMenuEdit = () => {
   ];
   return (
     <>
-      <div className="p-5 flex gap-5 items-center w-[80%]">
+      <div className="p-5 flex gap-5 items-center">
         <div className="bg-black text-white w-[17%] rounded-xl">
           <ul className="leading-8">
             {menuItems.map((item, index) => (
