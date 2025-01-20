@@ -19,8 +19,10 @@ const Login = () => {
           <input type="text" className="p-2 border rounded border-gray-300 w-full" />
         </div>
         <button className="uppercase text-sm p-2 border border-black bg-black text-white w-full rounded hover:bg-white hover:text-black duration-300">login</button>
+        <Link to="/forget-password">
         <button className="underline underline-offset-2 font-light text-center w-full mt-4 mx-auto">Forgot Your Password?</button> 
         <hr className="my-8 border border-gray-300" />
+        </Link>
 
         <div className="text-sm">
           <h2 className="text-center font-medium text-2xl mb-8">Sign Up</h2>

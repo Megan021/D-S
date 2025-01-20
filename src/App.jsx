@@ -26,6 +26,8 @@ import { OrderProvider } from "./Context/OrderContext";
 import ReviewPage from "./Pages/ReviewPage";
 import Review from "./Pages/Dashboard/Review";
 import MegaMenuEdit from "./Pages/MegaMenuEdit";
+import EmailVerification from "./Pages/Dashboard/ForgetPassword/EmailVerification";
+import NewPassword from "./Pages/Dashboard/ForgetPassword/NewPassword";
 
 function App() {
   return (
@@ -57,6 +59,8 @@ function App() {
               <Route path="/review-page/:id" element={<ReviewPage />} />
               <Route path="/review" element={<Review />} />
               <Route path="/megamenu-edit" element={<MegaMenuEdit />} />
+              <Route path="/forget-password" element={<EmailVerification />} />
+              <Route path="/new-password" element={<NewPassword />} />
             </Routes>
             <Footer />
             <Toaster position="top-center" reverseOrder={false} />
